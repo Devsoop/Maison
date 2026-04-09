@@ -13,6 +13,7 @@
   "sections": {
     "countdown-timer": {
       "type": "countdown-condensed",
+      "disabled": true,
       "settings": {
         "color_scheme": "schema-3",
         "content": "super Sale Up to 40% off",
@@ -25,8 +26,11 @@
     },
     "header": {
       "type": "header",
+      "custom_css": [
+        "span.header__logo-text.h5 {font-weight: 100; letter-spacing: 4px; font-size: 13px; text-transform: uppercase;}"
+      ],
       "settings": {
-        "color_scheme": "schema-2",
+        "color_scheme": "scheme-1",
         "enable_sticky": true,
         "hide_on_scroll": false,
         "show_separation_border": true,
@@ -34,7 +38,9 @@
         "logo": "{{shop.brand.logo}}",
         "logo_max_width": 130,
         "logo_mobile_max_width": 80,
-        "menu": "main-menu",
+        "menu": "",
+        "sidebar_menu": "",
+        "customer_account_menu": "",
         "menu_open_trigger": "hover",
         "menu_text_font": "heading",
         "enable_search": true,

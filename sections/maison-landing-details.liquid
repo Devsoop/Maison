@@ -1,0 +1,716 @@
+{%- assign color_scheme_hash = section.settings.color_scheme.settings.background_gradient | default: section.settings.color_scheme.settings.background | md5 -%}
+
+<div class="section-spacing color-scheme color-scheme--{{ section.settings.color_scheme.id }} color-scheme--bg-{{ color_scheme_hash }} {% if section.settings.separate_section_with_border %}bordered-section{% endif %}">
+  <div class="ma-container">
+    <section class="ma-block">
+      <span class="ma-section-label">{{ section.settings.problem_label }}</span>
+      <div class="ma-tension-grid">
+        <div class="ma-tension-cell">
+          <p class="ma-tension-label">{{ section.settings.option_a_label }}</p>
+          <p class="ma-tension-text">{{ section.settings.option_a_text }}</p>
+        </div>
+        <div class="ma-tension-cell">
+          <p class="ma-tension-label">{{ section.settings.option_b_label }}</p>
+          <p class="ma-tension-text">{{ section.settings.option_b_text }}</p>
+        </div>
+      </div>
+      <p class="ma-resolution">{{ section.settings.problem_resolution }}</p>
+    </section>
+
+    <section class="ma-block">
+      <span class="ma-section-label">{{ section.settings.features_label }}</span>
+      <div class="ma-feature-grid">
+        <div class="ma-feature-item">
+          <p class="ma-feature-num">01</p>
+          <p class="ma-feature-name">{{ section.settings.feature_1_title }}</p>
+          <p class="ma-feature-desc">{{ section.settings.feature_1_desc }}</p>
+        </div>
+        <div class="ma-feature-item">
+          <p class="ma-feature-num">02</p>
+          <p class="ma-feature-name">{{ section.settings.feature_2_title }}</p>
+          <p class="ma-feature-desc">{{ section.settings.feature_2_desc }}</p>
+        </div>
+        <div class="ma-feature-item">
+          <p class="ma-feature-num">03</p>
+          <p class="ma-feature-name">{{ section.settings.feature_3_title }}</p>
+          <p class="ma-feature-desc">{{ section.settings.feature_3_desc }}</p>
+        </div>
+        <div class="ma-feature-item">
+          <p class="ma-feature-num">04</p>
+          <p class="ma-feature-name">{{ section.settings.feature_4_title }}</p>
+          <p class="ma-feature-desc">{{ section.settings.feature_4_desc }}</p>
+        </div>
+        <div class="ma-feature-item">
+          <p class="ma-feature-num">05</p>
+          <p class="ma-feature-name">{{ section.settings.feature_5_title }}</p>
+          <p class="ma-feature-desc">{{ section.settings.feature_5_desc }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ma-block">
+      <span class="ma-section-label">{{ section.settings.details_label }}</span>
+      <div class="ma-proof-grid">
+        <div class="ma-proof-cell">
+          <p class="ma-proof-number">{{ section.settings.proof_1_number }}</p>
+          <p class="ma-proof-label">{{ section.settings.proof_1_label }}</p>
+        </div>
+        <div class="ma-proof-cell">
+          <p class="ma-proof-number">{{ section.settings.proof_2_number }}</p>
+          <p class="ma-proof-label">{{ section.settings.proof_2_label }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ma-block ma-story-section">
+      <p class="ma-story-quote">{{ section.settings.story_quote }}</p>
+      <p class="ma-story-attr">{{ section.settings.story_attribution }}</p>
+    </section>
+
+    <section class="ma-block">
+      <span class="ma-section-label">{{ section.settings.materials_label }}</span>
+      <div class="ma-materials-grid">
+        <div class="ma-material-cell">
+          <p class="ma-material-label">{{ section.settings.material_1_label }}</p>
+          <p class="ma-material-value">{{ section.settings.material_1_value }}</p>
+        </div>
+        <div class="ma-material-cell">
+          <p class="ma-material-label">{{ section.settings.material_2_label }}</p>
+          <p class="ma-material-value">{{ section.settings.material_2_value }}</p>
+        </div>
+        <div class="ma-material-cell">
+          <p class="ma-material-label">{{ section.settings.material_3_label }}</p>
+          <p class="ma-material-value">{{ section.settings.material_3_value }}</p>
+        </div>
+        <div class="ma-material-cell">
+          <p class="ma-material-label">{{ section.settings.material_4_label }}</p>
+          <p class="ma-material-value">{{ section.settings.material_4_value }}</p>
+        </div>
+        <div class="ma-material-cell">
+          <p class="ma-material-label">{{ section.settings.material_5_label }}</p>
+          <p class="ma-material-value">{{ section.settings.material_5_value }}</p>
+        </div>
+        <div class="ma-material-cell">
+          <p class="ma-material-label">{{ section.settings.material_6_label }}</p>
+          <p class="ma-material-value">{{ section.settings.material_6_value }}</p>
+        </div>
+      </div>
+      <p class="ma-materials-note">{{ section.settings.materials_note }}</p>
+    </section>
+
+    <section class="ma-block">
+      <span class="ma-section-label">{{ section.settings.pricing_label }}</span>
+      <div class="ma-price-box ma-price-box--featured">
+        <div>
+          <p class="ma-price-tier">{{ section.settings.pricing_1_tier }}</p>
+          <p class="ma-price-name">{{ section.settings.pricing_1_name }}</p>
+          <p class="ma-price-detail">{{ section.settings.pricing_1_detail }}</p>
+        </div>
+        <div class="ma-price-amount">{{ section.settings.pricing_1_amount }}<span>{{ section.settings.pricing_1_sub }}</span></div>
+      </div>
+      <div class="ma-price-box">
+        <div>
+          <p class="ma-price-tier">{{ section.settings.pricing_2_tier }}</p>
+          <p class="ma-price-name">{{ section.settings.pricing_2_name }}</p>
+          <p class="ma-price-detail">{{ section.settings.pricing_2_detail }}</p>
+        </div>
+        <div class="ma-price-amount">{{ section.settings.pricing_2_amount }}<span>{{ section.settings.pricing_2_sub }}</span></div>
+      </div>
+    </section>
+
+    <section class="ma-block">
+      <div class="ma-warranty-inner">
+        <p class="ma-warranty-title">{{ section.settings.warranty_title }}</p>
+        <p class="ma-warranty-text">{{ section.settings.warranty_text }}</p>
+      </div>
+    </section>
+  </div>
+</div>
+
+{% style %}
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+  #shopify-section-{{ section.id }} {
+    --ma-black: #1a1a1a;
+    --ma-white: #fafaf8;
+    --ma-warm-white: #f5f3ef;
+    --ma-border: rgba(26, 26, 26, 0.12);
+    --ma-border-strong: rgba(26, 26, 26, 0.25);
+    --ma-muted: #888580;
+    --ma-hint: #b5b2ad;
+    --ma-terracotta: #c47a5a;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--ma-black);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  #shopify-section-{{ section.id }} .ma-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  #shopify-section-{{ section.id }} .ma-block {
+    padding-block: 72px;
+  }
+
+  #shopify-section-{{ section.id }} .ma-section-label {
+    display: block;
+    margin-bottom: 1.75rem;
+    font-size: 0.625rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ma-hint);
+  }
+
+  #shopify-section-{{ section.id }} .ma-tension-grid,
+  #shopify-section-{{ section.id }} .ma-feature-grid,
+  #shopify-section-{{ section.id }} .ma-materials-grid,
+  #shopify-section-{{ section.id }} .ma-proof-grid {
+    display: grid;
+    gap: 1px;
+    background: var(--ma-border);
+  }
+
+  #shopify-section-{{ section.id }} .ma-tension-grid,
+  #shopify-section-{{ section.id }} .ma-feature-grid,
+  #shopify-section-{{ section.id }} .ma-materials-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #shopify-section-{{ section.id }} .ma-proof-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #shopify-section-{{ section.id }} .ma-tension-cell,
+  #shopify-section-{{ section.id }} .ma-feature-item,
+  #shopify-section-{{ section.id }} .ma-material-cell {
+    padding: 1.75rem 1.5rem;
+    background: var(--ma-white);
+  }
+
+  #shopify-section-{{ section.id }} .ma-proof-cell {
+    padding: 2rem 1.25rem;
+    text-align: center;
+    background: var(--ma-warm-white);
+  }
+
+  #shopify-section-{{ section.id }} .ma-tension-label,
+  #shopify-section-{{ section.id }} .ma-feature-num,
+  #shopify-section-{{ section.id }} .ma-proof-label,
+  #shopify-section-{{ section.id }} .ma-material-label,
+  #shopify-section-{{ section.id }} .ma-price-tier,
+  #shopify-section-{{ section.id }} .ma-story-attr {
+    font-size: 0.625rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ma-hint);
+  }
+
+  #shopify-section-{{ section.id }} .ma-tension-label,
+  #shopify-section-{{ section.id }} .ma-feature-num,
+  #shopify-section-{{ section.id }} .ma-material-label,
+  #shopify-section-{{ section.id }} .ma-price-tier {
+    margin-bottom: 0.625rem;
+  }
+
+  #shopify-section-{{ section.id }} .ma-tension-text,
+  #shopify-section-{{ section.id }} .ma-feature-name,
+  #shopify-section-{{ section.id }} .ma-price-name,
+  #shopify-section-{{ section.id }} .ma-proof-number,
+  #shopify-section-{{ section.id }} .ma-warranty-title {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: normal;
+    text-transform: none;
+    color: var(--ma-black);
+  }
+
+  #shopify-section-{{ section.id }} .ma-tension-text {
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.45;
+  }
+
+  #shopify-section-{{ section.id }} .ma-resolution,
+  #shopify-section-{{ section.id }} .ma-feature-desc,
+  #shopify-section-{{ section.id }} .ma-price-detail,
+  #shopify-section-{{ section.id }} .ma-warranty-text,
+  #shopify-section-{{ section.id }} .ma-materials-note {
+    color: var(--ma-muted);
+    line-height: 1.75;
+  }
+
+  #shopify-section-{{ section.id }} .ma-resolution {
+    margin-top: 2rem;
+    padding-inline-start: 1.5rem;
+    border-inline-start: 1.5px solid var(--ma-border-strong);
+  }
+
+  #shopify-section-{{ section.id }} .ma-feature-name {
+    font-weight: 500;
+    font-size: 1.0625rem;
+    margin-bottom: 0.5rem;
+  }
+
+  #shopify-section-{{ section.id }} .ma-feature-desc {
+    font-size: 0.8125rem;
+  }
+
+  #shopify-section-{{ section.id }} .ma-proof-number {
+    font-weight: 300;
+    margin-bottom: 0.375rem;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .ma-story-section {
+    border-block: 0.5px solid var(--ma-border);
+  }
+
+  #shopify-section-{{ section.id }} .ma-story-quote {
+    margin-bottom: 1.5rem;
+    padding-inline-start: 1.75rem;
+    border-inline-start: 1.5px solid var(--ma-terracotta);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--ma-black);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  #shopify-section-{{ section.id }} .ma-story-attr {
+    padding-inline-start: 1.75rem;
+  }
+
+  #shopify-section-{{ section.id }} .ma-material-cell {
+    padding: 1.25rem 1.5rem;
+  }
+
+  #shopify-section-{{ section.id }} .ma-material-value {
+    font-size: 0.875rem;
+    color: var(--ma-black);
+  }
+
+  #shopify-section-{{ section.id }} .ma-materials-note {
+    margin-top: 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+  }
+
+  #shopify-section-{{ section.id }} .ma-price-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 1.75rem 2rem;
+    border: 0.5px solid var(--ma-border-strong);
+  }
+
+  #shopify-section-{{ section.id }} .ma-price-box + .ma-price-box {
+    margin-top: 1px;
+  }
+
+  #shopify-section-{{ section.id }} .ma-price-box--featured {
+    background: var(--ma-warm-white);
+  }
+
+  #shopify-section-{{ section.id }} .ma-price-name {
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
+  }
+
+  #shopify-section-{{ section.id }} .ma-price-detail {
+    font-size: 0.75rem;
+  }
+
+  #shopify-section-{{ section.id }} .ma-price-amount {
+    text-align: end;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 2.25rem);
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1;
+    color: var(--ma-black);
+  }
+
+  #shopify-section-{{ section.id }} .ma-price-amount span {
+    display: block;
+    margin-top: 0.1875rem;
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ma-hint);
+  }
+
+  #shopify-section-{{ section.id }} .ma-warranty-inner {
+    padding-inline-start: 1.75rem;
+    border-inline-start: 2px solid var(--ma-black);
+  }
+
+  #shopify-section-{{ section.id }} .ma-warranty-title {
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  @media screen and (max-width: 699px) {
+    #shopify-section-{{ section.id }} .ma-block {
+      padding-block: 52px;
+    }
+
+    #shopify-section-{{ section.id }} .ma-tension-grid,
+    #shopify-section-{{ section.id }} .ma-feature-grid,
+    #shopify-section-{{ section.id }} .ma-materials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    #shopify-section-{{ section.id }} .ma-price-box {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.5rem;
+    }
+
+    #shopify-section-{{ section.id }} .ma-price-amount {
+      text-align: start;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Maison landing details",
+  "class": "shopify-section--maison-landing-details",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "separate_section_with_border",
+      "label": "Separate section with border",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "problem_label",
+      "label": "Problem label",
+      "default": "The gap"
+    },
+    {
+      "type": "text",
+      "id": "option_a_label",
+      "label": "Option A label",
+      "default": "Option A"
+    },
+    {
+      "type": "text",
+      "id": "option_a_text",
+      "label": "Option A text",
+      "default": "Beautiful bag. No room for anything real."
+    },
+    {
+      "type": "text",
+      "id": "option_b_label",
+      "label": "Option B label",
+      "default": "Option B"
+    },
+    {
+      "type": "text",
+      "id": "option_b_text",
+      "label": "Option B text",
+      "default": "Organized bag. Not for her."
+    },
+    {
+      "type": "textarea",
+      "id": "problem_resolution",
+      "label": "Resolution text",
+      "default": "The woman building a legacy - closing deals, leading rooms, raising the next generation - has never had a bag designed for her whole life. Until now."
+    },
+    {
+      "type": "text",
+      "id": "features_label",
+      "label": "Features label",
+      "default": "Engineered for real use"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Feature 1 title",
+      "default": "Reinforced base board"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_1_desc",
+      "label": "Feature 1 description",
+      "default": "Stands upright. Holds its shape fully loaded. Never sags. The most common failure point in this category - solved by design."
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Feature 2 title",
+      "default": "YKK zipper, MA-engraved"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_2_desc",
+      "label": "Feature 2 description",
+      "default": "Smooth under load. Both sides engraved with the MA monogram. Hardware that signals quality before you open it."
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Feature 3 title",
+      "default": "Expandable base compartment"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_3_desc",
+      "label": "Feature 3 description",
+      "default": "Hidden zip at the base. For the items you need without unpacking everything above. Thoughtful, not obvious."
+    },
+    {
+      "type": "text",
+      "id": "feature_4_title",
+      "label": "Feature 4 title",
+      "default": "Champagne-finish hardware"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_4_desc",
+      "label": "Feature 4 description",
+      "default": "Brushed satin. Low gloss. Luxury plating. Not yellow gold. Not shiny. The finish that signals taste, not trend."
+    },
+    {
+      "type": "text",
+      "id": "feature_5_title",
+      "label": "Feature 5 title",
+      "default": "No visible logo"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_5_desc",
+      "label": "Feature 5 description",
+      "default": "Blind deboss only. Boardroom, school run, evening - without announcing itself in any of them."
+    },
+    {
+      "type": "text",
+      "id": "details_label",
+      "label": "Details label",
+      "default": "The details"
+    },
+    {
+      "type": "text",
+      "id": "proof_1_number",
+      "label": "Stat 1 number",
+      "default": "30"
+    },
+    {
+      "type": "text",
+      "id": "proof_1_label",
+      "label": "Stat 1 label",
+      "default": "Day return window"
+    },
+    {
+      "type": "text",
+      "id": "proof_2_number",
+      "label": "Stat 2 number",
+      "default": "∞"
+    },
+    {
+      "type": "text",
+      "id": "proof_2_label",
+      "label": "Stat 2 label",
+      "default": "Hardware warranty"
+    },
+    {
+      "type": "textarea",
+      "id": "story_quote",
+      "label": "Story quote",
+      "default": "She is building something that lasts. The company, the career, the family - all of it, at once, without apology. We built the bag that understands that. Structured enough for the boardroom, composed enough for anywhere, quiet enough to let the woman carrying it do all the talking."
+    },
+    {
+      "type": "text",
+      "id": "story_attribution",
+      "label": "Story attribution",
+      "default": "Maison Amalia · Boston"
+    },
+    {
+      "type": "text",
+      "id": "materials_label",
+      "label": "Materials label",
+      "default": "Materials & construction"
+    },
+    {
+      "type": "text",
+      "id": "material_1_label",
+      "label": "Material 1 label",
+      "default": "Exterior"
+    },
+    {
+      "type": "text",
+      "id": "material_1_value",
+      "label": "Material 1 value",
+      "default": "Vegan leather (PU) - structured, UV-resistant"
+    },
+    {
+      "type": "text",
+      "id": "material_2_label",
+      "label": "Material 2 label",
+      "default": "Lining"
+    },
+    {
+      "type": "text",
+      "id": "material_2_value",
+      "label": "Material 2 value",
+      "default": "100% Polyester - tested for durability, no peeling"
+    },
+    {
+      "type": "text",
+      "id": "material_3_label",
+      "label": "Material 3 label",
+      "default": "Hardware"
+    },
+    {
+      "type": "text",
+      "id": "material_3_value",
+      "label": "Material 3 value",
+      "default": "Champagne-finish metal - brushed satin, luxury plating"
+    },
+    {
+      "type": "text",
+      "id": "material_4_label",
+      "label": "Material 4 label",
+      "default": "Zipper"
+    },
+    {
+      "type": "text",
+      "id": "material_4_value",
+      "label": "Material 4 value",
+      "default": "YKK - MA engraved on both sides of puller"
+    },
+    {
+      "type": "text",
+      "id": "material_5_label",
+      "label": "Material 5 label",
+      "default": "Interior emboss"
+    },
+    {
+      "type": "text",
+      "id": "material_5_value",
+      "label": "Material 5 value",
+      "default": "MAISON AMALIA + BOSTON - foil finish"
+    },
+    {
+      "type": "text",
+      "id": "material_6_label",
+      "label": "Material 6 label",
+      "default": "Origin"
+    },
+    {
+      "type": "text",
+      "id": "material_6_value",
+      "label": "Material 6 value",
+      "default": "Designed in Boston"
+    },
+    {
+      "type": "textarea",
+      "id": "materials_note",
+      "label": "Materials note",
+      "default": "We believe in full transparency. These are the exact materials and construction specifications. No ambiguity, no vague claims. You know what you are buying."
+    },
+    {
+      "type": "text",
+      "id": "pricing_label",
+      "label": "Pricing label",
+      "default": "Pricing"
+    },
+    {
+      "type": "text",
+      "id": "pricing_1_tier",
+      "label": "Pricing 1 tier",
+      "default": "Founding Circle - Waitlist Only"
+    },
+    {
+      "type": "text",
+      "id": "pricing_1_name",
+      "label": "Pricing 1 name",
+      "default": "Private access"
+    },
+    {
+      "type": "text",
+      "id": "pricing_1_detail",
+      "label": "Pricing 1 detail",
+      "default": "First 50 women · Private link · 48 hours before public launch"
+    },
+    {
+      "type": "text",
+      "id": "pricing_1_amount",
+      "label": "Pricing 1 amount",
+      "default": "$219"
+    },
+    {
+      "type": "text",
+      "id": "pricing_1_sub",
+      "label": "Pricing 1 sublabel",
+      "default": "Founding price"
+    },
+    {
+      "type": "text",
+      "id": "pricing_2_tier",
+      "label": "Pricing 2 tier",
+      "default": "Public Launch"
+    },
+    {
+      "type": "text",
+      "id": "pricing_2_name",
+      "label": "Pricing 2 name",
+      "default": "Open access"
+    },
+    {
+      "type": "text",
+      "id": "pricing_2_detail",
+      "label": "Pricing 2 detail",
+      "default": "Available July 2026 on maisonamalia.com · While first edition lasts"
+    },
+    {
+      "type": "text",
+      "id": "pricing_2_amount",
+      "label": "Pricing 2 amount",
+      "default": "$265"
+    },
+    {
+      "type": "text",
+      "id": "pricing_2_sub",
+      "label": "Pricing 2 sublabel",
+      "default": "Launch price"
+    },
+    {
+      "type": "text",
+      "id": "warranty_title",
+      "label": "Warranty title",
+      "default": "30-day return. Lifetime hardware warranty."
+    },
+    {
+      "type": "textarea",
+      "id": "warranty_text",
+      "label": "Warranty text",
+      "default": "If this is not the only bag you reach for, return it within 30 days. No explanation needed. And if any hardware fails - ever - we replace it. We built this to last. The warranty exists because we mean it."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maison landing details",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

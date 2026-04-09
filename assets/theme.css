@@ -8205,6 +8205,8 @@ shopify-account::part(signed-out-avatar) {
   letter-spacing: var(--heading-letter-spacing);
   text-transform: var(--heading-text-transform);
   overflow-wrap: anywhere;
+  color: var(--heading-color, var(--text-color));
+  line-height: 1.12;
 }
 
 .h1, :where(.prose h1) {
