@@ -59,6 +59,21 @@
         "remove_vertical_spacing": true
       }
     },
+    "slideshow_nHaM6y": {
+      "type": "slideshow",
+      "name": "t:sections.slideshow.presets.slideshow.name",
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": true,
+        "media_size": "auto",
+        "show_initial_transition": false,
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
     "rich-text": {
       "type": "rich-text",
       "blocks": {
@@ -103,7 +118,7 @@
       "type": "newsletter",
       "custom_css": [
         ".color-scheme {padding: 0;}",
-        ".button {background: #B09B6E; color: white;}"
+        ".button {background: #b09b6e; color: white;}"
       ],
       "name": "t:sections.newsletter.presets.newsletter.name",
       "settings": {
@@ -455,66 +470,6 @@
         "subheading": "",
         "title": "Media grid",
         "content": ""
-      }
-    },
-    "scrolling-content-1": {
-      "type": "scrolling-content",
-      "blocks": {
-        "text-1": {
-          "type": "text",
-          "settings": {
-            "text": "New: our bag"
-          }
-        }
-      },
-      "block_order": [
-        "text-1"
-      ],
-      "disabled": true,
-      "settings": {
-        "separate_section_with_border": true,
-        "scrolling_speed": 0.3,
-        "scroll_direction": "left",
-        "pause_on_hover": false,
-        "text_font": "heading",
-        "text_font_size_mobile": 32,
-        "text_font_size_desktop": 64,
-        "section_vertical_spacing_mobile": 20,
-        "section_vertical_spacing_desktop": 40,
-        "item_horizontal_spacing_mobile": 25,
-        "item_horizontal_spacing_desktop": 50,
-        "background": "",
-        "text_color": "#b3b3b3"
-      }
-    },
-    "scrolling-content-2": {
-      "type": "scrolling-content",
-      "blocks": {
-        "text-1": {
-          "type": "text",
-          "settings": {
-            "text": "Show new arrivals"
-          }
-        }
-      },
-      "block_order": [
-        "text-1"
-      ],
-      "disabled": true,
-      "settings": {
-        "separate_section_with_border": true,
-        "scrolling_speed": 0.3,
-        "scroll_direction": "right",
-        "pause_on_hover": false,
-        "text_font": "heading",
-        "text_font_size_mobile": 32,
-        "text_font_size_desktop": 64,
-        "section_vertical_spacing_mobile": 20,
-        "section_vertical_spacing_desktop": 40,
-        "item_horizontal_spacing_mobile": 25,
-        "item_horizontal_spacing_desktop": 50,
-        "background": "",
-        "text_color": "#b3b3b3"
       }
     },
     "featured-collections-2": {
@@ -1098,6 +1053,8 @@
   },
   "order": [
     "image_with_text_kq6YKc",
+    "image_with_text_4mKcjW",
+    "slideshow_nHaM6y",
     "rich-text",
     "newsletter_QXdrwy",
     "maison_landing_details_kfV6eP",
@@ -1106,8 +1063,6 @@
     "featured-collections-1",
     "image-with-text-overlay-1",
     "media-grid",
-    "scrolling-content-1",
-    "scrolling-content-2",
     "featured-collections-2",
     "video",
     "shop-the-look",
@@ -1119,7 +1074,6 @@
     "featured-product",
     "image-with-text-block",
     "testimonials",
-    "timeline",
-    "image_with_text_4mKcjW"
+    "timeline"
   ]
 }
