@@ -9,56 +9,6 @@
  */
 {
   "sections": {
-    "image_with_text_kq6YKc": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_8HPYpM": {
-          "type": "subheading",
-          "settings": {
-            "text": "Subheading"
-          }
-        },
-        "heading_dphXke": {
-          "type": "heading",
-          "settings": {
-            "text": "Coming Soon",
-            "heading_tag": "h1"
-          }
-        },
-        "richtext_Uh8Cki": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
-          }
-        },
-        "button_KH88BQ": {
-          "type": "button",
-          "settings": {
-            "style": "solid",
-            "text": "Button text",
-            "url": "",
-            "background": "#b09b6e",
-            "text_color": "#fafaf8"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_8HPYpM",
-        "heading_dphXke",
-        "richtext_Uh8Cki",
-        "button_KH88BQ"
-      ],
-      "name": "t:sections.image_with_text.presets.image_with_text.name",
-      "settings": {
-        "color_scheme": "",
-        "separate_section_with_border": false,
-        "image": "shopify://shop_images/Classic5CaramelBackView.webp",
-        "reveal_on_scroll": true,
-        "image_position": "start",
-        "content_width": "sm",
-        "remove_vertical_spacing": true
-      }
-    },
     "slideshow_nHaM6y": {
       "type": "slideshow",
       "name": "t:sections.slideshow.presets.slideshow.name",
@@ -117,7 +67,7 @@
     "newsletter_QXdrwy": {
       "type": "newsletter",
       "custom_css": [
-        ".color-scheme {padding: 0;}",
+        ".color-scheme {padding-top: 0;}",
         ".button {background: #b09b6e; color: white;}"
       ],
       "name": "t:sections.newsletter.presets.newsletter.name",
@@ -131,6 +81,95 @@
         "button_text": "Subscribe",
         "overlay_color": "#000000",
         "overlay_opacity": 0
+      }
+    },
+    "image_with_text_kq6YKc": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_8HPYpM": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_dphXke": {
+          "type": "heading",
+          "settings": {
+            "text": "Coming Soon",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_Uh8Cki": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_KH88BQ": {
+          "type": "button",
+          "settings": {
+            "style": "solid",
+            "text": "Button text",
+            "url": "",
+            "background": "#b09b6e",
+            "text_color": "#fafaf8"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_8HPYpM",
+        "heading_dphXke",
+        "richtext_Uh8Cki",
+        "button_KH88BQ"
+      ],
+      "name": "t:sections.image_with_text.presets.image_with_text.name",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": false,
+        "image": "shopify://shop_images/Classic5CaramelBackView.webp",
+        "reveal_on_scroll": true,
+        "image_position": "start",
+        "content_width": "sm",
+        "remove_vertical_spacing": true
+      }
+    },
+    "image_with_text_4mKcjW": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_BNr7LL": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_MjeHa4": {
+          "type": "heading",
+          "settings": {
+            "text": "Image with text",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_YJHfVF": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_BNr7LL",
+        "heading_MjeHa4",
+        "richtext_YJHfVF"
+      ],
+      "name": "t:sections.image_with_text.presets.image_with_text.name",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": false,
+        "image": "shopify://shop_images/Classic5BlackBackView.webp",
+        "reveal_on_scroll": true,
+        "image_position": "end",
+        "content_width": "sm",
+        "remove_vertical_spacing": true
       }
     },
     "maison_landing_details_kfV6eP": {
@@ -1010,53 +1049,14 @@
         "item_color_scheme": "scheme-2",
         "separate_section_with_border": false
       }
-    },
-    "image_with_text_4mKcjW": {
-      "type": "image-with-text",
-      "blocks": {
-        "subheading_BNr7LL": {
-          "type": "subheading",
-          "settings": {
-            "text": "Subheading"
-          }
-        },
-        "heading_MjeHa4": {
-          "type": "heading",
-          "settings": {
-            "text": "Image with text",
-            "heading_tag": "h1"
-          }
-        },
-        "richtext_YJHfVF": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "subheading_BNr7LL",
-        "heading_MjeHa4",
-        "richtext_YJHfVF"
-      ],
-      "name": "t:sections.image_with_text.presets.image_with_text.name",
-      "settings": {
-        "color_scheme": "",
-        "separate_section_with_border": false,
-        "image": "shopify://shop_images/Classic5BlackBackView.webp",
-        "reveal_on_scroll": true,
-        "image_position": "end",
-        "content_width": "sm",
-        "remove_vertical_spacing": true
-      }
     }
   },
   "order": [
-    "image_with_text_kq6YKc",
-    "image_with_text_4mKcjW",
     "slideshow_nHaM6y",
     "rich-text",
     "newsletter_QXdrwy",
+    "image_with_text_kq6YKc",
+    "image_with_text_4mKcjW",
     "maison_landing_details_kfV6eP",
     "multi_column_hr8a4x",
     "slideshow",
