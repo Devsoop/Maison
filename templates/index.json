@@ -45,12 +45,34 @@
           "settings": {
             "content": "<p>A quiet luxury bag for the woman building a legacy — who happens to be a<br/>mother. Engineered to hold everything without looking like it does.</p>"
           }
+        },
+        "button_BAUjbH": {
+          "type": "button",
+          "settings": {
+            "style": "solid",
+            "text": "JOIN THE FOUNDING CIRCLE",
+            "url": "",
+            "background": "",
+            "text_color": ""
+          }
+        },
+        "button_HpAQfa": {
+          "type": "button",
+          "settings": {
+            "style": "outline",
+            "text": "See what's inside ↓",
+            "url": "#",
+            "background": "",
+            "text_color": ""
+          }
         }
       },
       "block_order": [
         "richtext_eTMxXQ",
         "heading-1",
-        "richtext_MzWQPN"
+        "richtext_MzWQPN",
+        "button_BAUjbH",
+        "button_HpAQfa"
       ],
       "custom_css": [
         "h5 {font-size: 11px; letter-spacing: 0.2em; color: #888580; margin-bottom: 28px; font-family: var(--text-font-family);}",
