@@ -55,7 +55,8 @@
         "text_JVjgEn"
       ],
       "custom_css": [
-        ".color-scheme {border-top: solid 1px lightgray;}"
+        ".color-scheme {border-top: solid 1px lightgray;}",
+        ".footer__aside {justify-content: center;}"
       ],
       "settings": {
         "color_scheme": "scheme-1",
