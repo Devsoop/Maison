@@ -120,14 +120,14 @@
 {% style %}
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 
-  #shopify-section-{{ section.id }} {
-    --ma-black: #1a1a1a;
-    --ma-white: #fafaf8;
-    --ma-warm-white: #f5f3ef;
-    --ma-border: rgba(26, 26, 26, 0.12);
-    --ma-border-strong: rgba(26, 26, 26, 0.25);
-    --ma-muted: #888580;
-    --ma-hint: #b5b2ad;
+  #shopify-section-{{ section.id }} .color-scheme {
+    --ma-black: rgb(var(--text-color));
+    --ma-white: rgb(var(--background));
+    --ma-warm-white: rgb(var(--background));
+    --ma-border: rgb(var(--text-color) / 0.12);
+    --ma-border-strong: rgb(var(--text-color) / 0.25);
+    --ma-muted: rgb(var(--text-color) / 0.68);
+    --ma-hint: rgb(var(--text-color) / 0.5);
     --ma-terracotta: #c47a5a;
     font-family: 'Jost', sans-serif;
     font-weight: 300;
