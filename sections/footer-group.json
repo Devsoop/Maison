@@ -14,6 +14,14 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "text": {
+          "type": "text",
+          "settings": {
+            "title": "About",
+            "content": "<p>MAISON AMALIA is a quiet luxury handbag brand designed in Boston, with Paris and Dakar at its creative core. Built for the woman who carries her whole life — with intention.</p>",
+            "enable_follow_on_shop": true
+          }
+        },
         "newsletter": {
           "type": "newsletter",
           "settings": {
@@ -31,19 +39,20 @@
             "menu_title": ""
           }
         },
-        "text": {
+        "text_JVjgEn": {
           "type": "text",
           "settings": {
-            "title": "About",
-            "content": "<p>MAISON AMALIA is a quiet luxury handbag brand designed in Boston, with Paris and Dakar at its creative core. Built for the woman who carries her whole life — with intention.</p>",
+            "title": "Contact",
+            "content": "<p><a href=\"mailto:hello@maisonamalia.com\" title=\"mailto:hello@maisonamalia.com\">hello@maisonamalia.com</a></p>",
             "enable_follow_on_shop": true
           }
         }
       },
       "block_order": [
+        "text",
         "newsletter",
         "links",
-        "text"
+        "text_JVjgEn"
       ],
       "custom_css": [
         ".color-scheme {border-top: solid 1px lightgray;}"
