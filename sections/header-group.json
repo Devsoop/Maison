@@ -11,6 +11,29 @@
   "type": "header",
   "name": "Header group",
   "sections": {
+    "announcement_bar_inUAbB": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message_q4WLfM": {
+          "type": "message",
+          "settings": {
+            "text": "Founding Circle closes when first edition sells out. Join the waitlist. <a href=\"#\" title=\"#\">Join now</a>"
+          }
+        }
+      },
+      "block_order": [
+        "message_q4WLfM"
+      ],
+      "name": "t:sections.announcement_bar.name",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "enable_sticky": false,
+        "autoplay": true,
+        "cycle_speed": 5,
+        "desktop_font_size": 15,
+        "mobile_font_size": 13
+      }
+    },
     "countdown-timer": {
       "type": "countdown-condensed",
       "disabled": true,
@@ -59,6 +82,7 @@
     }
   },
   "order": [
+    "announcement_bar_inUAbB",
     "countdown-timer",
     "header"
   ]
