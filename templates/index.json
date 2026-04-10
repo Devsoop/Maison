@@ -154,12 +154,23 @@
           "settings": {
             "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
           }
+        },
+        "button_K9WVG7": {
+          "type": "button",
+          "settings": {
+            "style": "solid",
+            "text": "Button text",
+            "url": "",
+            "background": "#b09b6e",
+            "text_color": "#fafaf8"
+          }
         }
       },
       "block_order": [
         "subheading_BNr7LL",
         "heading_MjeHa4",
-        "richtext_YJHfVF"
+        "richtext_YJHfVF",
+        "button_K9WVG7"
       ],
       "name": "t:sections.image_with_text.presets.image_with_text.name",
       "settings": {
