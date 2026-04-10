@@ -17,8 +17,8 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "title": "Newsletter",
-            "content": "<p>Sign up to our newsletter to receive exclusive offers.</p>",
+            "title": "Early access. No discounts. No noise.",
+            "content": "<p>Join the list. Be first.</p>",
             "button_background": "#b09b6e",
             "button_text_color": "#fafaf8"
           }
