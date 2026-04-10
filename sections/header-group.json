@@ -60,7 +60,7 @@
         "reduce_padding": false,
         "logo_max_width": 130,
         "logo_mobile_max_width": 80,
-        "menu": "",
+        "menu": "main-menu",
         "sidebar_menu": "",
         "customer_account_menu": "",
         "menu_open_trigger": "hover",
