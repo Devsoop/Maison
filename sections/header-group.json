@@ -58,7 +58,6 @@
         "hide_on_scroll": false,
         "show_separation_border": true,
         "reduce_padding": false,
-        "logo": "{{shop.brand.logo}}",
         "logo_max_width": 130,
         "logo_mobile_max_width": 80,
         "menu": "",
