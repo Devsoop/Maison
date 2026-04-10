@@ -162,27 +162,27 @@
         "subheading_BNr7LL": {
           "type": "subheading",
           "settings": {
-            "text": "Subheading"
+            "text": "Available July 2026"
           }
         },
         "heading_MjeHa4": {
           "type": "heading",
           "settings": {
-            "text": "Image with text",
+            "text": "Built for the life you don't explain.",
             "heading_tag": "h1"
           }
         },
         "richtext_YJHfVF": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            "content": "<p>Boardroom. School run. Dinner. The bag that never makes you choose which version of<br/>yourself to be.</p>"
           }
         },
         "button_K9WVG7": {
           "type": "button",
           "settings": {
             "style": "solid",
-            "text": "Button text",
+            "text": "JOIN THE WAITLIST",
             "url": "",
             "background": "#b09b6e",
             "text_color": "#fafaf8"
