@@ -173,7 +173,9 @@
           © {{ 'now' | date: '%Y' }} - {{ shop.name }}. All rights reserved.
           {%- if section.settings.show_powered_by_shopify -%}{{ powered_by_link }}{%- endif -%}
         </p>
-
+        <p class="heading text-subdued text-xxs">
+          Designed to hold what matters. Crafted with intention.
+        </p>
         {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
           <ul class="payment-methods unstyled-list">
             {%- for type in shop.enabled_payment_types -%}
