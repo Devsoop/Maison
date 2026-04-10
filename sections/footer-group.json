@@ -19,8 +19,8 @@
           "settings": {
             "title": "Newsletter",
             "content": "<p>Sign up to our newsletter to receive exclusive offers.</p>",
-            "button_background": "",
-            "button_text_color": ""
+            "button_background": "#b09b6e",
+            "button_text_color": "#fafaf8"
           }
         },
         "links": {
@@ -45,9 +45,12 @@
         "links",
         "text"
       ],
+      "custom_css": [
+        ".color-scheme {border-top: solid 1px lightgray;}"
+      ],
       "settings": {
-        "color_scheme": "",
-        "separate_section_with_border": false,
+        "color_scheme": "scheme-1",
+        "separate_section_with_border": true,
         "show_social_media": true,
         "show_payment_icons": true,
         "show_powered_by_shopify": true,

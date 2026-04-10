@@ -20,31 +20,21 @@
     <section class="ma-block">
       <span class="ma-section-label">{{ section.settings.features_label }}</span>
       <div class="ma-feature-grid">
-        <div class="ma-feature-item">
-          <p class="ma-feature-num">01</p>
-          <p class="ma-feature-name">{{ section.settings.feature_1_title }}</p>
-          <p class="ma-feature-desc">{{ section.settings.feature_1_desc }}</p>
-        </div>
-        <div class="ma-feature-item">
-          <p class="ma-feature-num">02</p>
-          <p class="ma-feature-name">{{ section.settings.feature_2_title }}</p>
-          <p class="ma-feature-desc">{{ section.settings.feature_2_desc }}</p>
-        </div>
-        <div class="ma-feature-item">
-          <p class="ma-feature-num">03</p>
-          <p class="ma-feature-name">{{ section.settings.feature_3_title }}</p>
-          <p class="ma-feature-desc">{{ section.settings.feature_3_desc }}</p>
-        </div>
-        <div class="ma-feature-item">
-          <p class="ma-feature-num">04</p>
-          <p class="ma-feature-name">{{ section.settings.feature_4_title }}</p>
-          <p class="ma-feature-desc">{{ section.settings.feature_4_desc }}</p>
-        </div>
-        <div class="ma-feature-item">
-          <p class="ma-feature-num">05</p>
-          <p class="ma-feature-name">{{ section.settings.feature_5_title }}</p>
-          <p class="ma-feature-desc">{{ section.settings.feature_5_desc }}</p>
-        </div>
+        {% assign rendered_feature_count = 0 %}
+        {% for feature_index in (1..6) %}
+          {% assign feature_title_key = 'feature_' | append: feature_index | append: '_title' %}
+          {% assign feature_desc_key = 'feature_' | append: feature_index | append: '_desc' %}
+          {% assign feature_title = section.settings[feature_title_key] | strip %}
+          {% assign feature_desc = section.settings[feature_desc_key] | strip %}
+          {% if feature_title != blank or feature_desc != blank %}
+            {% assign rendered_feature_count = rendered_feature_count | plus: 1 %}
+            <div class="ma-feature-item">
+              <p class="ma-feature-num">{{ rendered_feature_count | prepend: '0' | slice: -2, 2 }}</p>
+              {% if feature_title != blank %}<p class="ma-feature-name">{{ feature_title }}</p>{% endif %}
+              {% if feature_desc != blank %}<p class="ma-feature-desc">{{ feature_desc }}</p>{% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
       </div>
     </section>
 
@@ -500,6 +490,16 @@
       "id": "feature_5_desc",
       "label": "Feature 5 description",
       "default": "Blind deboss only. Boardroom, school run, evening - without announcing itself in any of them."
+    },
+    {
+      "type": "text",
+      "id": "feature_6_title",
+      "label": "Feature 6 title"
+    },
+    {
+      "type": "textarea",
+      "id": "feature_6_desc",
+      "label": "Feature 6 description"
     },
     {
       "type": "text",

@@ -9,6 +9,56 @@
  */
 {
   "sections": {
+    "image_with_text_kq6YKc": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_8HPYpM": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_dphXke": {
+          "type": "heading",
+          "settings": {
+            "text": "Coming Soon",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_Uh8Cki": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_KH88BQ": {
+          "type": "button",
+          "settings": {
+            "style": "solid",
+            "text": "Button text",
+            "url": "",
+            "background": "#b09b6e",
+            "text_color": "#fafaf8"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_8HPYpM",
+        "heading_dphXke",
+        "richtext_Uh8Cki",
+        "button_KH88BQ"
+      ],
+      "name": "t:sections.image_with_text.presets.image_with_text.name",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": false,
+        "image": "shopify://shop_images/Classic5CaramelBackView.webp",
+        "reveal_on_scroll": true,
+        "image_position": "start",
+        "content_width": "sm",
+        "remove_vertical_spacing": true
+      }
+    },
     "rich-text": {
       "type": "rich-text",
       "blocks": {
@@ -38,7 +88,8 @@
         "richtext_MzWQPN"
       ],
       "custom_css": [
-        "h5 {font-size: 11px; letter-spacing: 0.2em; color: #888580; margin-bottom: 28px; font-family: var(--text-font-family);}"
+        "h5 {font-size: 11px; letter-spacing: 0.2em; color: #888580; margin-bottom: 28px; font-family: var(--text-font-family);}",
+        ".color-scheme {padding-bottom: 30px;}"
       ],
       "settings": {
         "color_scheme": "scheme-1",
@@ -46,6 +97,25 @@
         "content_width": "xs",
         "text_position": "center",
         "remove_vertical_spacing": false
+      }
+    },
+    "newsletter_QXdrwy": {
+      "type": "newsletter",
+      "custom_css": [
+        ".color-scheme {padding: 0;}",
+        ".button {background: #B09B6E; color: white;}"
+      ],
+      "name": "t:sections.newsletter.presets.newsletter.name",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "separate_section_with_border": false,
+        "image_size": "auto",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "button_text": "Subscribe",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0
       }
     },
     "maison_landing_details_kfV6eP": {
@@ -71,6 +141,8 @@
         "feature_4_desc": "Brushed satin. Low gloss. Luxury plating. Not yellow gold. Not shiny. The finish that signals taste, not trend.",
         "feature_5_title": "No visible logo",
         "feature_5_desc": "Blind deboss only. Boardroom, school run, evening - without announcing itself in any of them.",
+        "feature_6_title": "",
+        "feature_6_desc": "",
         "details_label": "The details",
         "proof_1_number": "30",
         "proof_1_label": "Day return window",
@@ -984,98 +1056,50 @@
         "separate_section_with_border": false
       }
     },
-    "image-with-text-overlay-2": {
-      "type": "image-with-text-overlay",
+    "image_with_text_4mKcjW": {
+      "type": "image-with-text",
       "blocks": {
-        "heading-1": {
+        "subheading_BNr7LL": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_MjeHa4": {
           "type": "heading",
           "settings": {
-            "text": "Our values",
-            "heading_tag": "h3"
+            "text": "Image with text",
+            "heading_tag": "h1"
           }
         },
-        "richtext-1": {
+        "richtext_YJHfVF": {
           "type": "richtext",
           "settings": {
-            "content": "<p>We aspire to be a brand of the 21st century: 100% online and without any intermediary.<br/>From you to us directly.</p>"
+            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
           }
         }
       },
       "block_order": [
-        "heading-1",
-        "richtext-1"
+        "subheading_BNr7LL",
+        "heading_MjeHa4",
+        "richtext_YJHfVF"
       ],
-      "disabled": true,
+      "name": "t:sections.image_with_text.presets.image_with_text.name",
       "settings": {
-        "color_scheme": "scheme-4",
-        "image_size": "auto",
-        "allow_transparent_header": false,
+        "color_scheme": "",
+        "separate_section_with_border": false,
+        "image": "shopify://shop_images/Classic5BlackBackView.webp",
         "reveal_on_scroll": true,
-        "remove_vertical_spacing": true,
-        "content_width": "xs",
-        "mobile_text_position": "place-self-center text-center",
-        "desktop_text_position": "sm:place-self-center sm:text-center",
-        "overlay_color": "#000000",
-        "overlay_opacity": 30
-      }
-    },
-    "multi-column": {
-      "type": "multi-column",
-      "blocks": {
-        "image-with-text-1": {
-          "type": "image_with_text",
-          "settings": {
-            "title": "The design",
-            "heading_tag": "h4",
-            "content": "<p>Every product is imagined and developed in our studio, with a focus on both form and function.</p>",
-            "link_url": "",
-            "link_text": ""
-          }
-        },
-        "image-with-text-2": {
-          "type": "image_with_text",
-          "settings": {
-            "title": "Materials",
-            "heading_tag": "h4",
-            "content": "<p>Our materials come from hides sourced as byproducts of the food industry. We collaborate exclusively with trusted tanneries based in Italy, France, and Spain.</p>",
-            "link_url": "",
-            "link_text": ""
-          }
-        },
-        "image-with-text-3": {
-          "type": "image_with_text",
-          "settings": {
-            "title": "The know-how",
-            "heading_tag": "h4",
-            "content": "<p>Every step of the process follows the rigorous standards of traditional leatherworking—ensuring durability, precision, and lasting quality.</p>",
-            "link_url": "",
-            "link_text": ""
-          }
-        }
-      },
-      "block_order": [
-        "image-with-text-1",
-        "image-with-text-2",
-        "image-with-text-3"
-      ],
-      "disabled": true,
-      "settings": {
-        "color_scheme": "scheme-1",
-        "separate_section_with_border": true,
-        "columns_per_row": 3,
-        "stack_on_mobile": false,
-        "overlap_image": false,
-        "content_alignment": "center",
-        "text_alignment": "center",
-        "spacing": "md",
-        "subheading": "About us",
-        "title": "From A to Z",
-        "content": ""
+        "image_position": "end",
+        "content_width": "sm",
+        "remove_vertical_spacing": true
       }
     }
   },
   "order": [
+    "image_with_text_kq6YKc",
     "rich-text",
+    "newsletter_QXdrwy",
     "maison_landing_details_kfV6eP",
     "multi_column_hr8a4x",
     "slideshow",
@@ -1096,7 +1120,6 @@
     "image-with-text-block",
     "testimonials",
     "timeline",
-    "image-with-text-overlay-2",
-    "multi-column"
+    "image_with_text_4mKcjW"
   ]
 }
