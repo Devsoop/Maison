@@ -112,27 +112,27 @@
         "subheading_8HPYpM": {
           "type": "subheading",
           "settings": {
-            "text": "Subheading"
+            "text": "The Première · First Edition"
           }
         },
         "heading_dphXke": {
           "type": "heading",
           "settings": {
-            "text": "Coming Soon",
+            "text": "Two colorways. One first edition.",
             "heading_tag": "h1"
           }
         },
         "richtext_Uh8Cki": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+            "content": "<p>Dune and Noir. Structured vegan leather. Champagne-finish hardware. A bag that moves between your life's rooms without asking permission.</p>"
           }
         },
         "button_KH88BQ": {
           "type": "button",
           "settings": {
             "style": "solid",
-            "text": "Button text",
+            "text": "JOIN THE WAITLIST",
             "url": "",
             "background": "#b09b6e",
             "text_color": "#fafaf8"
