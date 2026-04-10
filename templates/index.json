@@ -88,6 +88,7 @@
     },
     "newsletter_QXdrwy": {
       "type": "newsletter",
+      "disabled": true,
       "custom_css": [
         ".color-scheme {padding-top: 0;}",
         ".button {background: #b09b6e; color: white;}"
