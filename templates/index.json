@@ -88,9 +88,8 @@
     },
     "newsletter_QXdrwy": {
       "type": "newsletter",
-      "disabled": true,
       "custom_css": [
-        ".color-scheme {padding-top: 0;}",
+        ".color-scheme {padding-top: 0; padding-bottom: 15px;}",
         ".button {background: #b09b6e; color: white;}"
       ],
       "name": "t:sections.newsletter.presets.newsletter.name",
@@ -99,11 +98,33 @@
         "separate_section_with_border": false,
         "image_size": "auto",
         "subheading": "",
-        "title": "",
-        "content": "",
-        "button_text": "Subscribe",
+        "title": "<strong> Be among the first.</strong>",
+        "content": "<p>Founding Circle access. First edition pricing. No noise.</p>",
+        "button_text": "SECURE YOUR PLACE",
         "overlay_color": "#000000",
         "overlay_opacity": 0
+      }
+    },
+    "rich_text_TxKtPQ": {
+      "type": "rich-text",
+      "blocks": {
+        "richtext_Xg4c7K": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>You will not be sold to. You will mot be spammed. One email when we open.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "richtext_Xg4c7K"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": false,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
       }
     },
     "image_with_text_kq6YKc": {
@@ -1091,6 +1112,7 @@
     "slideshow_nHaM6y",
     "rich-text",
     "newsletter_QXdrwy",
+    "rich_text_TxKtPQ",
     "image_with_text_kq6YKc",
     "image_with_text_4mKcjW",
     "maison_landing_details_kfV6eP",
