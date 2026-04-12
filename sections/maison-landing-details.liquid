@@ -15,6 +15,9 @@
         </div>
       </div>
       <p class="ma-resolution">{{ section.settings.problem_resolution }}</p>
+      {% if section.settings.problem_attribution != blank %}
+        <p class="ma-story-attr">{{ section.settings.problem_attribution }}</p>
+      {% endif %}
     </section>
 
     <section class="ma-block">
@@ -59,6 +62,9 @@
 
     <section class="ma-block">
       <span class="ma-section-label">{{ section.settings.materials_label }}</span>
+      {% if section.settings.materials_description != blank %}
+        <p class="ma-materials-description">{{ section.settings.materials_description }}</p>
+      {% endif %}
       <div class="ma-materials-grid">
         <div class="ma-material-cell">
           <p class="ma-material-label">{{ section.settings.material_1_label }}</p>
@@ -89,7 +95,9 @@
           <p class="ma-material-value">{{ section.settings.material_7_value }}</p>
         </div>
       </div>
-      <p class="ma-materials-note">{{ section.settings.materials_note }}</p>
+      {% if section.settings.materials_note != blank %}
+        <p class="ma-materials-note">{{ section.settings.materials_note }}</p>
+      {% endif %}
     </section>
 
     <section class="ma-block">
@@ -158,6 +166,14 @@
     color: var(--ma-hint);
   }
 
+  #shopify-section-{{ section.id }} .ma-materials-description {
+    margin-top: -0.75rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.8125rem;
+    line-height: 1.75;
+    color: var(--ma-muted);
+  }
+
   #shopify-section-{{ section.id }} .ma-tension-grid,
   #shopify-section-{{ section.id }} .ma-feature-grid,
   #shopify-section-{{ section.id }} .ma-materials-grid,
@@ -168,9 +184,13 @@
   }
 
   #shopify-section-{{ section.id }} .ma-tension-grid,
-  #shopify-section-{{ section.id }} .ma-feature-grid,
-  #shopify-section-{{ section.id }} .ma-materials-grid {
+  #shopify-section-{{ section.id }} .ma-feature-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  /* One column so each material (e.g. Lining vs Changing pad) is its own row — never paired side-by-side */
+  #shopify-section-{{ section.id }} .ma-materials-grid {
+    grid-template-columns: 1fr;
   }
 
   #shopify-section-{{ section.id }} .ma-proof-grid {
@@ -239,6 +259,11 @@
     margin-top: 2rem;
     padding-inline-start: 1.5rem;
     border-inline-start: 1.5px solid var(--ma-border-strong);
+  }
+
+  #shopify-section-{{ section.id }} .ma-resolution + .ma-story-attr {
+    margin-top: 0.75rem;
+    padding-inline-start: 1.5rem;
   }
 
   #shopify-section-{{ section.id }} .ma-feature-name {
@@ -358,8 +383,7 @@
     }
 
     #shopify-section-{{ section.id }} .ma-tension-grid,
-    #shopify-section-{{ section.id }} .ma-feature-grid,
-    #shopify-section-{{ section.id }} .ma-materials-grid {
+    #shopify-section-{{ section.id }} .ma-feature-grid {
       grid-template-columns: 1fr;
     }
 
@@ -428,6 +452,12 @@
       "id": "problem_resolution",
       "label": "Resolution text",
       "default": "The woman building a legacy - closing deals, leading rooms, raising the next generation - has never had a bag designed for her whole life. Until now."
+    },
+    {
+      "type": "text",
+      "id": "problem_attribution",
+      "label": "Gap section attribution",
+      "default": "MAISON AMALIA · BOSTON"
     },
     {
       "type": "text",
@@ -554,6 +584,12 @@
       "default": "Materials & construction"
     },
     {
+      "type": "textarea",
+      "id": "materials_description",
+      "label": "Materials description",
+      "default": "We believe in full transparency. These are the exact materials and construction specifications. No ambiguity. No vague claims. You know what you are buying."
+    },
+    {
       "type": "text",
       "id": "material_1_label",
       "label": "Material 1 label",
@@ -569,19 +605,21 @@
       "type": "text",
       "id": "material_2_label",
       "label": "Material 2 label",
-      "default": "Lining"
+      "default": "Lining",
+      "info": "Keep lining copy here only. Changing pad must use Material 3 — do not combine into one field."
     },
     {
       "type": "text",
       "id": "material_2_value",
       "label": "Material 2 value",
-      "default": "100% Polyester - tested for durability, no peeling"
+      "default": "100% Polyester — tested for durability, no peeling"
     },
-     {
+    {
       "type": "text",
       "id": "material_3_label",
       "label": "Material 3 label",
-      "default": "CHANGING PAD"
+      "default": "CHANGING PAD",
+      "info": "Separate row from Lining (Material 2). Do not merge copy into Material 2."
     },
     {
       "type": "text",
@@ -640,8 +678,8 @@
     {
       "type": "textarea",
       "id": "materials_note",
-      "label": "Materials note",
-      "default": "We believe in full transparency. These are the exact materials and construction specifications. No ambiguity, no vague claims. You know what you are buying."
+      "label": "Materials footnote (optional, below grid)",
+      "info": "Leave blank if you only use the description above the grid."
     },
     {
       "type": "text",
