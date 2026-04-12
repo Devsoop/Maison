@@ -317,5 +317,10 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".password__logo-text{text-transform: uppercase;}"
+    ]
   }
 }
