@@ -170,7 +170,7 @@
       "settings": {
         "color_scheme": "scheme-2",
         "separate_section_with_border": false,
-        "image": "shopify://shop_images/Classic5CaramelBackView.webp",
+        "image": "shopify://shop_images/MaisonAmalia_Wordmark_on_cream.jpg",
         "reveal_on_scroll": true,
         "image_position": "start",
         "content_width": "sm",
@@ -220,7 +220,7 @@
       "settings": {
         "color_scheme": "scheme-2",
         "separate_section_with_border": false,
-        "image": "shopify://shop_images/Classic5BlackBackView.webp",
+        "image": "shopify://shop_images/MaisonAmalia_Wordmark_on_cream.jpg",
         "reveal_on_scroll": true,
         "image_position": "end",
         "content_width": "sm",
