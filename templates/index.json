@@ -43,7 +43,7 @@
         "richtext_MzWQPN": {
           "type": "richtext",
           "settings": {
-            "content": "<p>A quiet luxury bag for the woman building a legacy — who happens to be a<br/>mother. Engineered to hold everything without looking like it does.</p>"
+            "content": "<p>A quiet luxury bag for the woman building a legacy — who happens to be a<br/>mother. <br/>Engineered to hold everything without looking like it does.</p>"
           }
         },
         "button_BAUjbH": {
