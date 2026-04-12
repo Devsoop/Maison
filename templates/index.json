@@ -88,6 +88,7 @@
     },
     "newsletter_QXdrwy": {
       "type": "newsletter",
+      "disabled": true,
       "custom_css": [
         ".color-scheme {padding-top: 0; padding-bottom: 15px;}",
         ".button {background: #b09b6e; color: white;}"
@@ -1108,6 +1109,18 @@
         "item_color_scheme": "scheme-2",
         "separate_section_with_border": false
       }
+    },
+    "custom_liquid_pgwgxq": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom_liquid.presets.custom_liquid.name",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<div class=\"klaviyo-form-QQGVun\"></div>",
+        "text_alignment": "center"
+      }
     }
   },
   "order": [
@@ -1115,6 +1128,7 @@
     "rich-text",
     "newsletter_QXdrwy",
     "rich_text_TxKtPQ",
+    "custom_liquid_pgwgxq",
     "image_with_text_kq6YKc",
     "image_with_text_4mKcjW",
     "maison_landing_details_kfV6eP",
