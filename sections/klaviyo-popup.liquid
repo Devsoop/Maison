@@ -172,11 +172,13 @@
   font-size: 14px !important;
   border-radius: 0 !important;
 }
-#klaviyo-popup-{{ section.id }} [data-testid="form-row"] {
-      flex-direction: column !important;
-}
-#klaviyo-popup-{{ section.id }} form > .kl-private-reset-css-Xuajs1:first-child {
-  min-height: 180px !important;
+@media screen and (max-width: 700px) {
+  #klaviyo-popup-{{ section.id }} [data-testid="form-row"] {
+        flex-direction: column !important;
+  }
+  #klaviyo-popup-{{ section.id }} form > .kl-private-reset-css-Xuajs1:first-child {
+    min-height: 180px !important;
+  }
 }
 {% endstyle %}
 
