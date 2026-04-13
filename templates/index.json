@@ -75,8 +75,7 @@
         "button_HpAQfa"
       ],
       "custom_css": [
-        "h5 {font-size: 11px; letter-spacing: 0.2em; color: #888580; margin-bottom: 28px; font-family: var(--text-font-family);}",
-        ".color-scheme {padding-bottom: 30px;}"
+        "h5 {font-size: 11px; letter-spacing: 0.2em; color: #888580; margin-bottom: 28px; font-family: var(--text-font-family);}"
       ],
       "settings": {
         "color_scheme": "scheme-1",
