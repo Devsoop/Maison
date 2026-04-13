@@ -1,0 +1,211 @@
+{%- assign klaviyo_markup_value = klaviyo_markup | default: '<div class="klaviyo-form-QQGVun"></div>' -%}
+{%- assign klaviyo_success_message = success_message | default: 'Subscribed successfully.' -%}
+{%- assign klaviyo_error_message = error_message | default: 'Subscription failed. Please try again.' -%}
+{%- assign klaviyo_subscribed_message = subscribed_message | default: 'You are already subscribed with this email.' -%}
+{%- assign klaviyo_form_id = '' -%}
+{%- if klaviyo_markup_value contains 'klaviyo-form-' -%}
+  {%- assign klaviyo_form_id = klaviyo_markup_value | split: 'klaviyo-form-' | last | split: '"' | first | split: "'" | first | split: ' ' | first | strip -%}
+{%- endif -%}
+{%- assign klaviyo_instance_id = instance_id | default: section.id | default: 'global' -%}
+{%- assign klaviyo_sync_key = shared_key | default: klaviyo_form_id | default: klaviyo_instance_id -%}
+{%- assign klaviyo_close_on_success = close_popup_on_success | default: false -%}
+
+<div
+  data-klaviyo-shared-form
+  data-klaviyo-sync-key="{{ klaviyo_sync_key | escape }}"
+  data-klaviyo-form-id="{{ klaviyo_form_id | escape }}"
+  data-close-on-success="{{ klaviyo_close_on_success }}"
+  data-success-message="{{ klaviyo_success_message | escape }}"
+  data-error-message="{{ klaviyo_error_message | escape }}"
+  data-subscribed-message="{{ klaviyo_subscribed_message | escape }}"
+>
+  <div data-klaviyo-form-host>
+    {{ klaviyo_markup_value }}
+  </div>
+  <template data-klaviyo-form-template>
+    {{ klaviyo_markup_value }}
+  </template>
+</div>
+
+<script>
+  (() => {
+    const STORAGE_PREFIX = 'klaviyo-shared-subscribed:';
+    const TOAST_ID = 'klaviyo-shared-form-toast';
+    const STATE_EVENT = 'klaviyo:shared-state';
+    const READY_ATTR = 'data-klaviyo-shared-ready';
+
+    const getStorageKey = (syncKey) => `${STORAGE_PREFIX}${syncKey || 'default'}`;
+    const hasErrorNode = (host) =>
+      !!host.querySelector('.error_message, [data-testid*="error"], [aria-invalid="true"], [class*="error"]');
+
+    const ensureToast = () => {
+      let toast = document.getElementById(TOAST_ID);
+      if (toast) return toast;
+
+      toast = document.createElement('div');
+      toast.id = TOAST_ID;
+      toast.hidden = true;
+      toast.setAttribute('aria-live', 'polite');
+      toast.className = 'klaviyo-shared-toast';
+      document.body.appendChild(toast);
+
+      const style = document.createElement('style');
+      style.textContent = `
+        #${TOAST_ID} {
+          position: fixed;
+          left: 50%;
+          bottom: 1.25rem;
+          transform: translateX(-50%);
+          z-index: 999;
+          min-width: 220px;
+          max-width: calc(100vw - 2rem);
+          padding: 0.625rem 1rem;
+          border-radius: 999px;
+          font-size: 0.8125rem;
+          text-align: center;
+          color: #fff;
+          background: rgb(24 24 24 / 0.95);
+          opacity: 0;
+          transition: opacity 0.2s ease, transform 0.2s ease;
+          pointer-events: none;
+        }
+        #${TOAST_ID}[data-type='error'] {
+          background: rgb(180 36 36 / 0.95);
+        }
+        #${TOAST_ID}.is-visible {
+          opacity: 1;
+          transform: translate(-50%, -6px);
+        }
+      `;
+      document.head.appendChild(style);
+      return toast;
+    };
+
+    const showToast = (message, type = 'success') => {
+      const toast = ensureToast();
+      if (!toast) return;
+
+      clearTimeout(window.__klaviyoSharedToastTimer);
+      toast.textContent = message;
+      toast.dataset.type = type;
+      toast.hidden = false;
+
+      requestAnimationFrame(() => toast.classList.add('is-visible'));
+
+      window.__klaviyoSharedToastTimer = window.setTimeout(() => {
+        toast.classList.remove('is-visible');
+        window.setTimeout(() => {
+          toast.hidden = true;
+        }, 200);
+      }, 3000);
+    };
+
+    const setSubscribed = (syncKey) => {
+      localStorage.setItem(getStorageKey(syncKey), 'true');
+      document.dispatchEvent(new CustomEvent(STATE_EVENT, { detail: { syncKey, subscribed: true } }));
+    };
+
+    const isSubscribed = (syncKey) => localStorage.getItem(getStorageKey(syncKey)) === 'true';
+
+    const closeParentPopup = (element) => {
+      const popup = element.closest('pop-in');
+      if (!popup || typeof popup.hide !== 'function') return;
+      popup.hide();
+    };
+
+    const initInstance = (instance) => {
+      if (!(instance instanceof HTMLElement)) return;
+      if (instance.getAttribute(READY_ATTR) === 'true') return;
+      instance.setAttribute(READY_ATTR, 'true');
+
+      const host = instance.querySelector('[data-klaviyo-form-host]');
+      const template = instance.querySelector('template[data-klaviyo-form-template]');
+      if (!host || !template) return;
+
+      const syncKey = instance.dataset.klaviyoSyncKey || 'default';
+      const formId = instance.dataset.klaviyoFormId || '';
+      const successMessage = instance.dataset.successMessage || 'Subscribed successfully.';
+      const errorMessage = instance.dataset.errorMessage || 'Subscription failed. Please try again.';
+      const subscribedMessage = instance.dataset.subscribedMessage || 'You are already subscribed with this email.';
+      const closeOnSuccess = instance.dataset.closeOnSuccess === 'true';
+      let isSubmitting = false;
+
+      const render = () => {
+        if (isSubscribed(syncKey)) {
+          host.innerHTML = `<p class="text-subdued" role="status">${subscribedMessage}</p>`;
+          return;
+        }
+        host.innerHTML = template.innerHTML;
+      };
+
+      render();
+
+      instance.addEventListener(
+        'submit',
+        (event) => {
+          if (!(event.target instanceof HTMLFormElement)) return;
+          isSubmitting = true;
+        },
+        true
+      );
+
+      const observer = new MutationObserver(() => {
+        if (!isSubmitting) return;
+        if (!hasErrorNode(host)) return;
+
+        isSubmitting = false;
+        showToast(errorMessage, 'error');
+      });
+      observer.observe(host, { childList: true, subtree: true, attributes: true, characterData: true });
+
+      window.addEventListener('klaviyoForms', (event) => {
+        const detail = event.detail || {};
+        const type = String(detail.type || '').toLowerCase();
+        const eventFormId = String(detail.formId || '');
+
+        if (formId && eventFormId && eventFormId !== formId) return;
+        if (!formId && eventFormId && syncKey !== eventFormId) return;
+
+        if (type === 'submit') {
+          isSubmitting = false;
+          if (!isSubscribed(syncKey)) {
+            setSubscribed(syncKey);
+            showToast(successMessage, 'success');
+          }
+          render();
+          if (closeOnSuccess) {
+            window.setTimeout(() => closeParentPopup(instance), 600);
+          }
+          return;
+        }
+
+        if ((type.includes('error') || type.includes('fail')) && isSubmitting) {
+          isSubmitting = false;
+          showToast(errorMessage, 'error');
+        }
+      });
+
+      document.addEventListener(STATE_EVENT, (event) => {
+        if (event.detail?.syncKey !== syncKey) return;
+        render();
+      });
+
+      window.addEventListener('storage', (event) => {
+        if (event.key !== getStorageKey(syncKey)) return;
+        render();
+      });
+    };
+
+    const initAll = () => {
+      document.querySelectorAll('[data-klaviyo-shared-form]').forEach((instance) => initInstance(instance));
+    };
+
+    if (!window.__klaviyoSharedFormBooted) {
+      window.__klaviyoSharedFormBooted = true;
+      document.addEventListener('shopify:section:load', initAll);
+      document.addEventListener('shopify:block:select', initAll);
+    }
+
+    initAll();
+  })();
+</script>
