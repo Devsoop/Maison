@@ -176,7 +176,7 @@
         {%- endif -%}
 
         <p class="heading text-subdued text-xxs">
-          © {{ 'now' | date: '%Y' }} - {{ shop.name }}. All rights reserved. <br> Designed to hold what matters. Crafted with intention.
+          © {{ 'now' | date: '%Y' }} - {{ shop.name | uppercase }}. All rights reserved. <br> Designed to hold what matters. Crafted with intention.
           {%- if section.settings.show_powered_by_shopify -%}{{ powered_by_link }}{%- endif -%}
         </p>
       
