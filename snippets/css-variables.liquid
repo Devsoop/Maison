@@ -6,17 +6,11 @@
 {%- assign language_code = localization.language.iso_code | split: '-' | first -%}
 
 <style>
-  {%- assign heading_font_italic = settings.heading_font | font_modify: 'style', 'italic' -%}
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap');
+
   {%- assign text_font_italic = settings.text_font | font_modify: 'style', 'italic' -%}
   {%- assign text_font_bold = settings.text_font | font_modify: 'weight', 'bolder' -%}
   {%- assign text_font_bold_italic = text_font_bold | font_modify: 'style', 'italic' -%}
-
-  /* Typography (heading) */
-  {{ settings.heading_font | font_face: font_display: 'fallback' }}
-
-  {%- if heading_font_italic -%}
-    {{ heading_font_italic | font_face: font_display: 'fallback' }}
-  {%- endif -%}
 
   /* Typography (body) */
   {{ settings.text_font | font_face: font_display: 'fallback' }}
@@ -34,10 +28,18 @@
   {%- endif -%}
 
   :root {
+    --black: #1a1a1a;
+    --white: #fafaf8;
+    --warm-white: #f5f3ef;
+    --border-color: rgba(26, 26, 26, 0.12);
+    --border-strong: rgba(26, 26, 26, 0.25);
+    --muted: #888580;
+    --hint: #b5b2ad;
+    --terracotta: #c47a5a;
     /* Container */
     --container-max-width: 100%;
     --container-xxs-max-width: 27.5rem; /* 440px */
-    --container-xs-max-width: 42.5rem; /* 680px */
+    --container-xs-max-width: 530px;
     --container-sm-max-width: 61.25rem; /* 980px */
     --container-md-max-width: 71.875rem; /* 1150px */
     --container-lg-max-width: 78.75rem; /* 1260px */
@@ -74,8 +76,9 @@
      */
 
     /* Font properties */
-    --heading-font-family: {{ settings.heading_font.family }}, {{ settings.heading_font.fallback_families }};
-    --heading-font-weight: {{ settings.heading_font.weight }};
+    --heading-font-family: 'Cormorant Garamond', serif;
+    /* --heading-font-weight: {{ settings.heading_font.weight }}; */
+    --heading-font-weight: 300;
     --heading-font-style: {{ settings.heading_font.style }};
     --heading-text-transform: {{ settings.heading_text_transform }};
     --heading-letter-spacing: {% if language_code == 'ar' %}0{% else %}{{ settings.heading_letter_spacing | divided_by: 100.0 }}{% endif %}em;
@@ -216,6 +219,7 @@
     --modal-scheme-background: {{ settings.modal_color_scheme.settings.background.rgb }};
     --modal-scheme-background-gradient: {{ settings.modal_color_scheme.settings.background_gradient }};
     --modal-scheme-text-color: {{ settings.modal_color_scheme.settings.text_color.rgb }};
+    --modal-scheme-heading-color: {{ settings.modal_color_scheme.settings.heading_color | default: settings.modal_color_scheme.settings.text_color.rgb }};
   }
 
   {%- for color_scheme in settings.color_schemes -%}
@@ -227,6 +231,7 @@
 
       --accent: {{ color_scheme.settings.primary_button_background.rgb }};
       --text-color: {{ color_scheme.settings.text_color.rgb }};
+      --heading-color: {{ color_scheme.settings.heading_color | default: color_scheme.settings.text_color.rgb }};
       --background: {{ color_scheme.settings.background.rgb }} / {{ color_scheme.settings.background.alpha }};
       --background-without-opacity: {{ color_scheme.settings.background.rgb }};
       --background-gradient: {{ color_scheme.settings.background_gradient }};
@@ -266,6 +271,7 @@
 
     --accent: {{ color_scheme.settings.primary_button_background.rgb }};
     --text-color: {{ color_scheme.settings.text_color.rgb }};
+    --heading-color: {{ color_scheme.settings.heading_color | default: color_scheme.settings.text_color.rgb }};
     --background: {{ color_scheme.settings.background.rgba }};
     --background-without-opacity: {{ color_scheme.settings.background.rgb }};
     --background-gradient: {{ color_scheme.settings.background_gradient }};

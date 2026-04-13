@@ -1,1 +1,96 @@
-{"type":"footer","name":"Footer group","sections":{"text-with-icons":{"type":"text-with-icons","blocks":{"icon-1":{"type":"item","settings":{"title":"Free delivery worldwide"}},"icon-2":{"type":"item","settings":{"title":"Satisfied or refunded"}},"icon-3":{"type":"item","settings":{"title":"Top-notch support"}},"icon-4":{"type":"item","settings":{"title":"Secure payments"}}},"block_order":["icon-1","icon-2","icon-3","icon-4"],"settings":{}},"footer":{"type":"footer","blocks":{"newsletter":{"type":"newsletter","settings":{}},"links":{"type":"links","settings":{"menu":"footer","show_menu_title":true}},"text":{"type":"text","settings":{"title":"About","content":"<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.<\/p>"}}},"block_order":["newsletter","links","text"],"settings":{}}},"order":["text-with-icons","footer"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "disabled": true,
+          "settings": {
+            "title": "About",
+            "content": "<p>MAISON AMALIA is a quiet luxury handbag brand designed in Boston, with Paris and Dakar at its creative core. Built for the woman who carries her whole life — with intention.<br/><br/>Join the list. Be first.</p>",
+            "button_background": "#b09b6e",
+            "button_text_color": "#fafaf8"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "title": "Join the list. Be first.",
+            "content": "",
+            "custom_liquid": "{% render 'klaviyo-shared-form',\n  klaviyo_markup: '<div class=\"klaviyo-form-QQGVun\"></div>',\n  instance_id: 'footer-newsletter',\n  close_popup_on_success: false\n%}",
+            "enable_follow_on_shop": true
+          }
+        },
+        "text_wNPckj": {
+          "type": "text",
+          "settings": {
+            "title": "About",
+            "content": "<p>MAISON AMALIA is a quiet luxury handbag brand designed in Boston. Built for the woman who carries her whole life — with intention.</p>",
+            "custom_liquid": "",
+            "enable_follow_on_shop": true
+          }
+        },
+        "links": {
+          "type": "links",
+          "settings": {
+            "menu": "footer",
+            "show_menu_title": false,
+            "menu_title": ""
+          }
+        },
+        "text_JVjgEn": {
+          "type": "text",
+          "settings": {
+            "title": "Contact",
+            "content": "<p><a href=\"mailto:hello@maisonamalia.com\" title=\"mailto:hello@maisonamalia.com\">hello@maisonamalia.com</a></p>",
+            "custom_liquid": "",
+            "enable_follow_on_shop": true
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "text",
+        "text_wNPckj",
+        "links",
+        "text_JVjgEn"
+      ],
+      "custom_css": [
+        ".color-scheme {border-top: solid 1px lightgray;}",
+        "[data-testid=\"form-row\"] {flex-direction: column !important;}",
+        "input + div {display: none;}",
+        "[data-testid=\"form-component\"] {margin: 0 !important; padding: 0 !important;}",
+        "form {padding: 0 !important;}",
+        "input {margin-bottom: 10px; border: 0 !important;}",
+        ".footer__aside {justify-content: center;}",
+        ".kl-private-reset-css-Xuajs1.go3176171171 {display: none;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "separate_section_with_border": true,
+        "show_social_media": true,
+        "show_payment_icons": true,
+        "show_powered_by_shopify": false,
+        "show_country_selector": true,
+        "show_country_name": true,
+        "show_country_flag": true,
+        "show_locale_selector": true
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

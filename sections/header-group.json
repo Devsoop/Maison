@@ -11,8 +11,50 @@
   "type": "header",
   "name": "Header group",
   "sections": {
+    "klaviyo_popup_dXFjiw": {
+      "type": "klaviyo-popup",
+      "custom_css": [
+        "form {padding: 0 !important;}",
+        ".kl-private-reset-css-Xuajs1.go3176171171 {display: none !important;}",
+        "input {border-radius: 0 !important;}"
+      ],
+      "name": "Klaviyo popup",
+      "settings": {
+        "popup_trigger_id": "#klavForm",
+        "heading": "<strong> Be among the first.</strong>",
+        "subheading": "Founding Circle access. First edition pricing. No noise.",
+        "klaviyo_markup": "<div class=\"klaviyo-form-QQGVun\"></div>",
+        "description": "You will not be sold to. You will not be spammed. One email when we open.",
+        "color_scheme": "scheme-1",
+        "popup_width": 640
+      }
+    },
+    "announcement_bar_inUAbB": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message_q4WLfM": {
+          "type": "message",
+          "settings": {
+            "text": "Founding Circle closes with the first edition. <a href=\"#\" title=\"#\">Join now</a>"
+          }
+        }
+      },
+      "block_order": [
+        "message_q4WLfM"
+      ],
+      "name": "t:sections.announcement_bar.name",
+      "settings": {
+        "color_scheme": "scheme-3",
+        "enable_sticky": false,
+        "autoplay": true,
+        "cycle_speed": 5,
+        "desktop_font_size": 15,
+        "mobile_font_size": 13
+      }
+    },
     "countdown-timer": {
       "type": "countdown-condensed",
+      "disabled": true,
       "settings": {
         "color_scheme": "schema-3",
         "content": "super Sale Up to 40% off",
@@ -25,18 +67,22 @@
     },
     "header": {
       "type": "header",
+      "custom_css": [
+        "span.header__logo-text.h5 {font-weight: 100; letter-spacing: 4px; font-size: 13px; text-transform: uppercase;}"
+      ],
       "settings": {
-        "color_scheme": "schema-2",
+        "color_scheme": "scheme-1",
         "enable_sticky": true,
         "hide_on_scroll": false,
         "show_separation_border": true,
         "reduce_padding": false,
-        "logo": "{{shop.brand.logo}}",
         "logo_max_width": 130,
         "logo_mobile_max_width": 80,
         "menu": "main-menu",
+        "sidebar_menu": "",
+        "customer_account_menu": "",
         "menu_open_trigger": "hover",
-        "menu_text_font": "heading",
+        "menu_text_font": "body",
         "enable_search": true,
         "sidebar_color_scheme": "schema-2",
         "sidebar_text_font": "heading",
@@ -53,6 +99,8 @@
     }
   },
   "order": [
+    "klaviyo_popup_dXFjiw",
+    "announcement_bar_inUAbB",
     "countdown-timer",
     "header"
   ]
