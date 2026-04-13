@@ -27,7 +27,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "title": "Join the Waitlist",
+            "title": "Join the list. Be first.",
             "content": "",
             "custom_liquid": "<div class=\"klaviyo-form-QQGVun\"></div>",
             "enable_follow_on_shop": true
@@ -72,7 +72,8 @@
         "[data-testid=\"form-row\"] {flex-direction: column !important;}",
         "input + div {display: none;}",
         "[data-testid=\"form-component\"] {margin: 0 !important; padding: 0 !important;}",
-        "input{margin-bottom: 10px;}",
+        "form {padding: 0 !important;}",
+        "input {margin-bottom: 10px; border: 0 !important;}",
         ".footer__aside {justify-content: center;}",
         ".kl-private-reset-css-Xuajs1.go3176171171 {display: none;}"
       ],
