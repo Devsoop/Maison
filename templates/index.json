@@ -206,7 +206,7 @@
           "settings": {
             "style": "solid",
             "text": "JOIN THE WAITLIST",
-            "url": "",
+            "url": "#klavForm",
             "background": "#b09b6e",
             "text_color": "#fafaf8"
           }
