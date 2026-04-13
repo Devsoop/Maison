@@ -16,6 +16,7 @@
       "blocks": {
         "newsletter": {
           "type": "newsletter",
+          "disabled": true,
           "settings": {
             "title": "About",
             "content": "<p>MAISON AMALIA is a quiet luxury handbag brand designed in Boston, with Paris and Dakar at its creative core. Built for the woman who carries her whole life — with intention.<br/><br/>Join the list. Be first.</p>",
@@ -25,10 +26,19 @@
         },
         "text": {
           "type": "text",
-          "disabled": true,
+          "settings": {
+            "title": "Join the Waitlist",
+            "content": "",
+            "custom_liquid": "<div class=\"klaviyo-form-QQGVun\"></div>",
+            "enable_follow_on_shop": true
+          }
+        },
+        "text_wNPckj": {
+          "type": "text",
           "settings": {
             "title": "About",
             "content": "<p>MAISON AMALIA is a quiet luxury handbag brand designed in Boston, with Paris and Dakar at its creative core. Built for the woman who carries her whole life — with intention.</p>",
+            "custom_liquid": "",
             "enable_follow_on_shop": true
           }
         },
@@ -45,6 +55,7 @@
           "settings": {
             "title": "Contact",
             "content": "<p><a href=\"mailto:hello@maisonamalia.com\" title=\"mailto:hello@maisonamalia.com\">hello@maisonamalia.com</a></p>",
+            "custom_liquid": "",
             "enable_follow_on_shop": true
           }
         }
@@ -52,12 +63,18 @@
       "block_order": [
         "newsletter",
         "text",
+        "text_wNPckj",
         "links",
         "text_JVjgEn"
       ],
       "custom_css": [
         ".color-scheme {border-top: solid 1px lightgray;}",
-        ".footer__aside {justify-content: center;}"
+        "[data-testid=\"form-row\"] {flex-direction: column !important;}",
+        "input + div {display: none;}",
+        "[data-testid=\"form-component\"] {margin: 0 !important; padding: 0 !important;}",
+        "input{margin-bottom: 10px;}",
+        ".footer__aside {justify-content: center;}",
+        ".kl-private-reset-css-Xuajs1.go3176171171 {display: none;}"
       ],
       "settings": {
         "color_scheme": "scheme-1",
