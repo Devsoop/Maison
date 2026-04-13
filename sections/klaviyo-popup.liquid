@@ -7,6 +7,10 @@
 {%- if popup_trigger_id != blank -%}
   {%- assign popup_trigger_selector = '#' | append: popup_trigger_id -%}
 {%- endif -%}
+{%- assign klaviyo_form_id = '' -%}
+{%- if section.settings.klaviyo_markup contains 'klaviyo-form-' -%}
+  {%- assign klaviyo_form_id = section.settings.klaviyo_markup | split: 'klaviyo-form-' | last | split: '"' | first | split: "'" | first | split: ' ' | first | strip -%}
+{%- endif -%}
 
 <pop-in
   id="klaviyo-popup-{{ section.id }}"
@@ -32,9 +36,11 @@
       <p>{{ section.settings.subheading }}</p>
     {%- endif -%}
 
-    {%- if section.settings.klaviyo_markup != blank -%}
-      {{ section.settings.klaviyo_markup }}
-    {%- endif -%}
+    <div data-klaviyo-form-root>
+      {%- if section.settings.klaviyo_markup != blank -%}
+        {{ section.settings.klaviyo_markup }}
+      {%- endif -%}
+    </div>
 
     {%- if section.settings.description != blank -%}
       <p>{{ section.settings.description }}</p>
@@ -42,14 +48,31 @@
   </div>
 </pop-in>
 <div id="klaviyo-popup-overlay-{{ section.id }}" class="klaviyo-popup-overlay" hidden></div>
+<div id="klaviyo-popup-toast-{{ section.id }}" class="klaviyo-popup-toast" hidden></div>
+<template id="klaviyo-popup-form-template-{{ section.id }}">
+  {{ section.settings.klaviyo_markup }}
+</template>
 
 <script>
   (() => {
     const popup = document.getElementById('klaviyo-popup-{{ section.id }}');
     if (!popup) return;
+    if (popup.dataset.klaviyoPopupInit === 'true') return;
+    popup.dataset.klaviyoPopupInit = 'true';
+
     const overlay = document.getElementById('klaviyo-popup-overlay-{{ section.id }}');
+    const toast = document.getElementById('klaviyo-popup-toast-{{ section.id }}');
+    const formRoot = popup.querySelector('[data-klaviyo-form-root]');
+    const formTemplate = document.getElementById('klaviyo-popup-form-template-{{ section.id }}');
+    const klaviyoFormId = '{{ klaviyo_form_id }}';
 
     const LOCK_COUNT_ATTR = 'data-klaviyo-popup-lock-count';
+    const SUCCESS_MESSAGE = 'Subscribed successfully.';
+    const ERROR_MESSAGE = 'Subscription failed. Please try again.';
+    const ALREADY_SUBSCRIBED_MESSAGE = 'You are already subscribed with this email.';
+    const SUBSCRIBED_FLAG_KEY = `klaviyo-popup-subscribed:{{ section.id }}:${klaviyoFormId || 'default'}`;
+    let klaviyoState = 'idle';
+    let toastTimer;
 
     const lockBodyScroll = () => {
       const body = document.body;
@@ -80,9 +103,73 @@
       body.setAttribute(LOCK_COUNT_ATTR, String(lockCount - 1));
     };
 
+    const showToast = (message, type = 'success') => {
+      if (!toast) return;
+
+      clearTimeout(toastTimer);
+      toast.textContent = message;
+      toast.dataset.type = type;
+      toast.hidden = false;
+
+      requestAnimationFrame(() => toast.classList.add('is-visible'));
+
+      toastTimer = window.setTimeout(() => {
+        toast.classList.remove('is-visible');
+        window.setTimeout(() => {
+          toast.hidden = true;
+        }, 200);
+      }, 3000);
+    };
+
+    const resetKlaviyoForm = () => {
+      if (!formRoot || !formTemplate) return;
+      formRoot.innerHTML = formTemplate.innerHTML;
+    };
+
+    const hasAlreadySubscribed = () => localStorage.getItem(SUBSCRIBED_FLAG_KEY) === 'true';
+
+    const setAlreadySubscribed = () => {
+      localStorage.setItem(SUBSCRIBED_FLAG_KEY, 'true');
+    };
+
+    const renderAlreadySubscribedState = () => {
+      if (!formRoot) return;
+      formRoot.innerHTML = `<p class="text-subdued" role="status">${ALREADY_SUBSCRIBED_MESSAGE}</p>`;
+    };
+
+    const syncKlaviyoError = () => {
+      if (!formRoot || klaviyoState !== 'submitting') return;
+
+      const hasError = !!formRoot.querySelector(
+        '.error_message, [data-testid*="error"], [aria-invalid="true"], [class*="error"]'
+      );
+
+      if (!hasError || klaviyoState === 'error') return;
+
+      klaviyoState = 'error';
+      showToast(ERROR_MESSAGE, 'error');
+    };
+
+    const handleKlaviyoSubmitSuccess = () => {
+      if (klaviyoState === 'success') return;
+
+      klaviyoState = 'success';
+      setAlreadySubscribed();
+      showToast(SUCCESS_MESSAGE, 'success');
+      window.setTimeout(() => {
+        popup.hide();
+      }, 600);
+    };
+
     popup.addEventListener('dialog:after-show', lockBodyScroll);
     popup.addEventListener('dialog:after-hide', unlockBodyScroll);
     popup.addEventListener('dialog:before-show', () => {
+      klaviyoState = 'idle';
+      if (hasAlreadySubscribed()) {
+        renderAlreadySubscribedState();
+      } else {
+        resetKlaviyoForm();
+      }
       if (!overlay) return;
       overlay.hidden = false;
       requestAnimationFrame(() => overlay.classList.add('is-visible'));
@@ -107,6 +194,51 @@
       event.preventDefault();
       popup.hide();
     });
+    popup.addEventListener(
+      'submit',
+      (event) => {
+        if (!(event.target instanceof HTMLFormElement)) return;
+        klaviyoState = 'submitting';
+      },
+      true
+    );
+    window.addEventListener('klaviyoForms', (event) => {
+      const detail = event.detail || {};
+
+      if (detail.type !== 'submit') return;
+      if (!popup.hasAttribute('open')) return;
+      if (klaviyoFormId && detail.formId && detail.formId !== klaviyoFormId) return;
+
+      handleKlaviyoSubmitSuccess();
+    });
+
+    const observer = new MutationObserver(() => {
+      syncKlaviyoError();
+    });
+    if (formRoot) {
+      observer.observe(formRoot, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        characterData: true
+      });
+    }
+    popup.addEventListener('dialog:after-hide', () => {
+      klaviyoState = 'idle';
+      if (hasAlreadySubscribed()) {
+        renderAlreadySubscribedState();
+      } else {
+        resetKlaviyoForm();
+      }
+    });
+
+    if (popup.hasAttribute('open')) {
+      if (hasAlreadySubscribed()) {
+        renderAlreadySubscribedState();
+      } else {
+        resetKlaviyoForm();
+      }
+    }
 
     const triggerId = popup.dataset.triggerId;
     const triggerSelector = popup.dataset.triggerSelector;
@@ -136,6 +268,34 @@
 
   #klaviyo-popup-overlay-{{ section.id }}.is-visible {
     opacity: 1;
+  }
+
+  #klaviyo-popup-toast-{{ section.id }} {
+    position: fixed;
+    inset-block-end: 1.25rem;
+    inset-inline-start: 50%;
+    translate: -50% 0;
+    z-index: 12;
+    min-width: 220px;
+    max-width: calc(100vw - 2rem);
+    border-radius: 999px;
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+    text-align: center;
+    background: rgb(24 24 24 / 0.95);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.2s ease, translate 0.2s ease;
+    pointer-events: none;
+  }
+
+  #klaviyo-popup-toast-{{ section.id }}[data-type='error'] {
+    background: rgb(180 36 36 / 0.95);
+  }
+
+  #klaviyo-popup-toast-{{ section.id }}.is-visible {
+    opacity: 1;
+    translate: -50% -6px;
   }
   #klaviyo-popup-{{ section.id }}  .v-stack{
     gap:0!important;
