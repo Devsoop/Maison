@@ -69,7 +69,7 @@
       ],
       "custom_css": [
         ".color-scheme {border-top: solid 1px lightgray;}",
-        "[data-testid=\"form-row\"] {flex-direction: column;}",
+        "[data-testid=\"form-row\"] {flex-direction: column!important;}",
         ".footer__aside {justify-content: center;}",
         ".kl-private-reset-css-Xuajs1.go3176171171 {display: none;}"
       ],
