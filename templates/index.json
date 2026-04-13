@@ -1109,18 +1109,6 @@
         "item_color_scheme": "scheme-2",
         "separate_section_with_border": false
       }
-    },
-    "custom_liquid_zh8JWL": {
-      "type": "custom-liquid",
-      "name": "t:sections.custom_liquid.presets.custom_liquid.name",
-      "settings": {
-        "color_scheme": "",
-        "separate_section_with_border": true,
-        "remove_vertical_spacing": false,
-        "remove_horizontal_spacing": false,
-        "liquid": "<div class=\"klaviyo-form-QQGVun\"></div>",
-        "text_alignment": "center"
-      }
     }
   },
   "order": [
@@ -1147,7 +1135,6 @@
     "featured-product",
     "image-with-text-block",
     "testimonials",
-    "timeline",
-    "custom_liquid_zh8JWL"
+    "timeline"
   ]
 }
