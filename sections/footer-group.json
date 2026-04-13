@@ -29,7 +29,7 @@
           "settings": {
             "title": "Join the list. Be first.",
             "content": "",
-            "custom_liquid": "<div class=\"klaviyo-form-QQGVun\"></div>",
+            "custom_liquid": "{% render 'klaviyo-shared-form',\n  klaviyo_markup: '<div class=\"klaviyo-form-QQGVun\"></div>',\n  instance_id: 'footer-newsletter',\n  close_popup_on_success: false\n%}",
             "enable_follow_on_shop": true
           }
         },
