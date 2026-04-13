@@ -19,6 +19,7 @@
   data-error-message="{{ klaviyo_error_message | escape }}"
   data-subscribed-message="{{ klaviyo_subscribed_message | escape }}"
 >
+  <p data-klaviyo-shared-note class="text-subdued" role="status" hidden></p>
   <div data-klaviyo-form-host>
     {{ klaviyo_markup_value }}
   </div>
@@ -120,7 +121,8 @@
 
       const host = instance.querySelector('[data-klaviyo-form-host]');
       const template = instance.querySelector('template[data-klaviyo-form-template]');
-      if (!host || !template) return;
+      const note = instance.querySelector('[data-klaviyo-shared-note]');
+      if (!host || !template || !note) return;
 
       const syncKey = instance.dataset.klaviyoSyncKey || 'default';
       const formId = instance.dataset.klaviyoFormId || '';
@@ -131,11 +133,15 @@
       let isSubmitting = false;
 
       const render = () => {
+        host.innerHTML = template.innerHTML;
+
         if (isSubscribed(syncKey)) {
-          host.innerHTML = `<p class="text-subdued" role="status">${subscribedMessage}</p>`;
+          note.textContent = subscribedMessage;
+          note.hidden = false;
           return;
         }
-        host.innerHTML = template.innerHTML;
+
+        note.hidden = true;
       };
 
       render();
@@ -170,8 +176,8 @@
           isSubmitting = false;
           if (!isSubscribed(syncKey)) {
             setSubscribed(syncKey);
-            showToast(successMessage, 'success');
           }
+          showToast(successMessage, 'success');
           render();
           if (closeOnSuccess) {
             window.setTimeout(() => closeParentPopup(instance), 600);
