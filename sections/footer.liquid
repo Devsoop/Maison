@@ -39,7 +39,7 @@
                   {%- endif -%}
 
                 {%- when 'text' -%}
-                  {%- if block.settings.title != blank or block.settings.content != blank or shop.features.follow_on_shop? and block.settings.enable_follow_on_shop -%}
+                  {%- if block.settings.title != blank or block.settings.content != blank or block.settings.custom_liquid != blank or shop.features.follow_on_shop? and block.settings.enable_follow_on_shop -%}
                     <div class="v-stack gap-4 sm:gap-5">
                       {%- if block.settings.title != blank -%}
                         <p class="h6">{{ block.settings.title }}</p>
@@ -48,6 +48,12 @@
                       {%- if block.settings.content != blank -%}
                         <div class="prose text-subdued">
                           {{- block.settings.content -}}
+                        </div>
+                      {%- endif -%}
+
+                      {%- if block.settings.custom_liquid != blank -%}
+                        <div class="prose text-subdued">
+                          {{- block.settings.custom_liquid -}}
                         </div>
                       {%- endif -%}
 
@@ -307,6 +313,11 @@
           "id": "content",
           "label": "t:global.text.content",
           "default": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>"
+        },
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom liquid"
         },
         {
           "type": "checkbox",

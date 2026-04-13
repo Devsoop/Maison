@@ -11,6 +11,25 @@
   "type": "header",
   "name": "Header group",
   "sections": {
+    "klaviyo_popup_dXFjiw": {
+      "type": "klaviyo-popup",
+      "custom_css": [
+        "button.kl-private-reset-css-Xuajs1 {background: #b09b6e !important; font-weight: 100 !important; font-family: \"Jost\" !important; text-transform: uppercase; letter-spacing: 1.5px !important; font-size: 14px !important; border-radius: 0 !important;}",
+        "form{padding:0!important;}",
+        ".kl-private-reset-css-Xuajs1.go3176171171 {display: none !important;}",
+        "input {border-radius: 0 !important;}"
+      ],
+      "name": "Klaviyo popup",
+      "settings": {
+        "popup_trigger_id": "#klavForm",
+        "heading": "<strong> Be among the first.</strong>",
+        "subheading": "Founding Circle access. First edition pricing. No noise.",
+        "klaviyo_markup": "<div class=\"klaviyo-form-QQGVun\"></div>",
+        "description": "You will not be sold to. You will not be spammed. One email when we open.",
+        "color_scheme": "scheme-1",
+        "popup_width": 640
+      }
+    },
     "announcement_bar_inUAbB": {
       "type": "announcement-bar",
       "blocks": {
@@ -81,6 +100,7 @@
     }
   },
   "order": [
+    "klaviyo_popup_dXFjiw",
     "announcement_bar_inUAbB",
     "countdown-timer",
     "header"

@@ -1,0 +1,225 @@
+{%- assign popup_trigger_id = section.settings.popup_trigger_id | strip -%}
+{%- if popup_trigger_id != blank -%}
+  {%- assign popup_trigger_id = popup_trigger_id | remove_first: '#' -%}
+{%- endif -%}
+{%- assign popup_color_scheme_id = section.settings.color_scheme.id | default: section.settings.color_scheme -%}
+{%- assign popup_trigger_selector = '' -%}
+{%- if popup_trigger_id != blank -%}
+  {%- assign popup_trigger_selector = '#' | append: popup_trigger_id -%}
+{%- endif -%}
+
+<pop-in
+  id="klaviyo-popup-{{ section.id }}"
+  class="pop-in klaviyo-popup color-scheme color-scheme--{{ popup_color_scheme_id }}"
+  title="{{ section.settings.heading | default: 'Klaviyo popup' | escape }}"
+  handle-editor-events
+  data-trigger-id="{{ popup_trigger_id }}"
+  data-trigger-selector="{{ popup_trigger_selector }}"
+>
+  <dialog-close-button class="contents">
+    <button class="pop-in__close-button tap-area" type="button">
+      <span class="sr-only">{{ 'general.accessibility.close' | t }}</span>
+      {%- render 'icon' with 'close' -%}
+    </button>
+  </dialog-close-button>
+
+  <div class="v-stack gap-6">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="h4">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.subheading != blank -%}
+      <p>{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.klaviyo_markup != blank -%}
+      {{ section.settings.klaviyo_markup }}
+    {%- endif -%}
+
+    {%- if section.settings.description != blank -%}
+      <p>{{ section.settings.description }}</p>
+    {%- endif -%}
+  </div>
+</pop-in>
+<div id="klaviyo-popup-overlay-{{ section.id }}" class="klaviyo-popup-overlay" hidden></div>
+
+<script>
+  (() => {
+    const popup = document.getElementById('klaviyo-popup-{{ section.id }}');
+    if (!popup) return;
+    const overlay = document.getElementById('klaviyo-popup-overlay-{{ section.id }}');
+
+    const LOCK_COUNT_ATTR = 'data-klaviyo-popup-lock-count';
+
+    const lockBodyScroll = () => {
+      const body = document.body;
+      if (!body) return;
+
+      const lockCount = Number(body.getAttribute(LOCK_COUNT_ATTR) || '0');
+
+      if (lockCount === 0) {
+        body.dataset.klaviyoPopupOverflow = body.style.overflow;
+        body.style.overflow = 'hidden';
+      }
+
+      body.setAttribute(LOCK_COUNT_ATTR, String(lockCount + 1));
+    };
+
+    const unlockBodyScroll = () => {
+      const body = document.body;
+      if (!body) return;
+
+      const lockCount = Number(body.getAttribute(LOCK_COUNT_ATTR) || '0');
+      if (lockCount <= 1) {
+        body.style.overflow = body.dataset.klaviyoPopupOverflow || '';
+        delete body.dataset.klaviyoPopupOverflow;
+        body.removeAttribute(LOCK_COUNT_ATTR);
+        return;
+      }
+
+      body.setAttribute(LOCK_COUNT_ATTR, String(lockCount - 1));
+    };
+
+    popup.addEventListener('dialog:after-show', lockBodyScroll);
+    popup.addEventListener('dialog:after-hide', unlockBodyScroll);
+    popup.addEventListener('dialog:before-show', () => {
+      if (!overlay) return;
+      overlay.hidden = false;
+      requestAnimationFrame(() => overlay.classList.add('is-visible'));
+    });
+    popup.addEventListener('dialog:after-hide', () => {
+      if (!overlay) return;
+      overlay.classList.remove('is-visible');
+      overlay.hidden = true;
+    });
+
+    if (popup.hasAttribute('open')) {
+      lockBodyScroll();
+      if (overlay) {
+        overlay.hidden = false;
+        overlay.classList.add('is-visible');
+      }
+    }
+
+    overlay?.addEventListener('click', () => popup.hide());
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape' || !popup.hasAttribute('open')) return;
+      event.preventDefault();
+      popup.hide();
+    });
+
+    const triggerId = popup.dataset.triggerId;
+    const triggerSelector = popup.dataset.triggerSelector;
+    if (!triggerId || !triggerSelector) return;
+
+    document.addEventListener('click', (event) => {
+      const bySelector = event.target.closest(triggerSelector);
+      const byHref = event.target.closest(`a[href="#${triggerId}"]`);
+
+      if (!bySelector && !byHref) return;
+
+      event.preventDefault();
+      popup.show();
+    });
+  })();
+</script>
+
+{% style %}
+  #klaviyo-popup-overlay-{{ section.id }} {
+    position: fixed;
+    inset: 0;
+    z-index: 9;
+    background: rgb(0 0 0 / 0.5);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  #klaviyo-popup-overlay-{{ section.id }}.is-visible {
+    opacity: 1;
+  }
+  #klaviyo-popup-{{ section.id }}  .v-stack{
+    gap:0!important;
+  }
+  #klaviyo-popup-{{ section.id }} {
+    width: min(calc(100vw - 2rem), {{ section.settings.popup_width }}px);
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    inset-block-end: auto;
+    inset-inline-end: auto;
+    translate: -50% -50%;
+    background-color: rgb(var(--background));
+    background-image: var(--background-gradient);
+    color: rgb(var(--text-color));
+    border: 1px solid rgb(var(--border-color));
+    text-align: center;
+  }
+
+  @media screen and (min-width: 700px) {
+    #klaviyo-popup-{{ section.id }} {
+      width: min(calc(100vw - 4rem), {{ section.settings.popup_width }}px);
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Klaviyo popup",
+  "class": "shopify-section--popup",
+  "enabled_on": {
+    "groups": ["header", "footer", "aside"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "popup_trigger_id",
+      "label": "ID field to open popup",
+      "info": "Use a value like klavForm or #klavForm."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join our list"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading (p)",
+      "default": "Be the first to hear about launches and private offers."
+    },
+    {
+      "type": "liquid",
+      "id": "klaviyo_markup",
+      "label": "Markup field",
+      "default": "<div class=\"klaviyo-form-QQGVun\"></div>"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description (p)",
+      "default": "No spam. Unsubscribe anytime."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-3"
+    },
+    {
+      "type": "range",
+      "id": "popup_width",
+      "min": 320,
+      "max": 760,
+      "step": 10,
+      "unit": "px",
+      "label": "Popup width",
+      "default": 440
+    }
+  ],
+  "presets": [
+    {
+      "name": "Klaviyo popup"
+    }
+  ]
+}
+{% endschema %}
