@@ -78,7 +78,7 @@
         "h5 {font-size: 11px; letter-spacing: 0.2em; color: #888580; margin-bottom: 28px; font-family: var(--text-font-family);}"
       ],
       "settings": {
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-2",
         "separate_section_with_border": false,
         "content_width": "xs",
         "text_position": "center",
@@ -105,27 +105,101 @@
         "overlay_opacity": 0
       }
     },
-    "rich_text_TxKtPQ": {
-      "type": "rich-text",
+    "slideshow_JCBHHT": {
+      "type": "slideshow",
       "blocks": {
-        "richtext_Xg4c7K": {
-          "type": "richtext",
+        "image_czKCka": {
+          "type": "image",
           "settings": {
-            "content": "<p>You will not be sold to. You will not be spammed. One email when we open.</p>"
+            "image": "shopify://shop_images/IMG_0813.jpg",
+            "subheading": "",
+            "title": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#fafaf8",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 0,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": ""
           }
         }
       },
       "block_order": [
-        "richtext_Xg4c7K"
+        "image_czKCka"
+      ],
+      "custom_css": [
+        "img {object-fit: contain;}"
+      ],
+      "name": "t:sections.slideshow.presets.slideshow.name",
+      "settings": {
+        "allow_transparent_header": true,
+        "show_next_section_button": true,
+        "media_size": "lg",
+        "show_initial_transition": false,
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 4,
+        "background": "#f6f4ec",
+        "controls_color": "#ffffff"
+      }
+    },
+    "slideshow_x6UcDB": {
+      "type": "slideshow",
+      "blocks": {
+        "image_XJDFqd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/IMG_0812.jpg",
+            "split_image": "shopify://shop_images/IMG_0819.jpg",
+            "subheading": "",
+            "title": "",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2), rgba(4, 4, 4, 0.65) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "image_XJDFqd"
       ],
       "disabled": true,
-      "name": "t:sections.rich_text.presets.rich_text.name",
+      "name": "t:sections.slideshow.presets.slideshow.name",
       "settings": {
-        "color_scheme": "",
-        "separate_section_with_border": false,
-        "content_width": "sm",
-        "text_position": "center",
-        "remove_vertical_spacing": false
+        "allow_transparent_header": true,
+        "show_next_section_button": true,
+        "media_size": "auto",
+        "show_initial_transition": false,
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
       }
     },
     "image_with_text_kq6YKc": {
@@ -167,6 +241,7 @@
         "richtext_Uh8Cki",
         "button_KH88BQ"
       ],
+      "custom_css": [],
       "name": "t:sections.image_with_text.presets.image_with_text.name",
       "settings": {
         "color_scheme": "scheme-2",
@@ -175,7 +250,7 @@
         "reveal_on_scroll": true,
         "image_position": "start",
         "content_width": "sm",
-        "remove_vertical_spacing": true
+        "remove_vertical_spacing": false
       }
     },
     "image_with_text_4mKcjW": {
@@ -225,7 +300,7 @@
         "reveal_on_scroll": true,
         "image_position": "end",
         "content_width": "sm",
-        "remove_vertical_spacing": true
+        "remove_vertical_spacing": false
       }
     },
     "maison_landing_details_kfV6eP": {
@@ -1115,7 +1190,8 @@
     "slideshow_nHaM6y",
     "rich-text",
     "newsletter_QXdrwy",
-    "rich_text_TxKtPQ",
+    "slideshow_JCBHHT",
+    "slideshow_x6UcDB",
     "image_with_text_kq6YKc",
     "image_with_text_4mKcjW",
     "maison_landing_details_kfV6eP",
