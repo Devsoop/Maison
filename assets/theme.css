@@ -6441,6 +6441,10 @@ shopify-account::part(signed-out-avatar) {
   --product-info-gap: 3rem;
 }
 
+.product-info__block-item .vendor{
+  text-transform: uppercase;
+}
+
 @media screen and (max-width: 699px) {
   .product-info--center :is([data-block-type="vendor"], [data-block-type="title"], [data-block-type="sku"], [data-block-type="price"]) {
     text-align: center;
