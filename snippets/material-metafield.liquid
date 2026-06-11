@@ -1,0 +1,18 @@
+{%- if product.metafields.custom.material != blank -%}
+  {%- liquid
+    assign material_html = product.metafields.custom.material | metafield_tag
+    assign material_html = material_html | replace: '<div class="metafield-rich_text_field">', '' | replace: '</div>', '' | replace: '<p>', '' | replace: '</p>', ''
+    assign material_html = material_html | replace: '<br />', '|||' | replace: '<br/>', '|||' | replace: '<br>', '|||'
+    assign material_lines = material_html | split: '|||'
+  -%}
+
+  <div class="material-metafield">
+    {%- for line in material_lines -%}
+      {%- assign line_stripped = line | strip -%}
+      {%- if line_stripped != blank -%}
+        {%- unless forloop.first -%}<hr class="material-divider">{%- endunless -%}
+        <p>{{ line_stripped }}</p>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{%- endif -%}
