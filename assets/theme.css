@@ -6264,6 +6264,16 @@ shopify-account::part(signed-out-avatar) {
   }
 }
 
+.prose .material-divider {
+  border: 0;
+  border-top: 1px solid rgb(var(--text-color) / .15);
+  margin-block: .75rem;
+}
+
+.prose .material-metafield > p {
+  margin-block: 0;
+}
+
 @media screen and (min-width: 1150px) {
   .product {
     --product-gap: 5rem;
@@ -6439,6 +6449,10 @@ shopify-account::part(signed-out-avatar) {
 
 .product-info__block-group:has(.product-info__block-item[data-block-type="complementary-products"]) {
   --product-info-gap: 3rem;
+}
+
+.product-info__block-item .vendor{
+  text-transform: uppercase;
 }
 
 @media screen and (max-width: 699px) {
